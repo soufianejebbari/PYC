@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :cruises do
     resources :bookings, only: [:index, :show, :new, :create]
   end
-
+  
   resources :boats, only: [:new, :edit, :create, :update, :destroy]
   get 'dashboard', to: 'dashboards#dashboard'
 
