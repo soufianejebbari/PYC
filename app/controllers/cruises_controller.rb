@@ -1,6 +1,15 @@
 class CruisesController < ApplicationController
   def index
-    @cruise = Cruise.all
+    # @cruise = Cruise.all
+    if params[:search]
+      if params[:search][:query].present?
+        @cruises = policy_scope(Cruise).near(params[:search][:query], 5)
+      else
+        @cruises = policy_scope(Cruise)
+      end
+    else
+      @cruises = policy_scope(Cruise)
+    end
   end
 
   def show

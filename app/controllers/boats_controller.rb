@@ -10,12 +10,11 @@ class BoatsController < ApplicationController
   end
 
   def new
-    # authorize @boat
     @boat = Boat.new
+    authorize @boat
   end
 
   def create
-    # authorize @boat
     @boat = Boat.new(boat_params)
     @boat.user = current_user
     if @boat.save
@@ -23,24 +22,25 @@ class BoatsController < ApplicationController
     else
       render :new
     end
+    authorize @boat
   end
 
   def edit
   end
 
   def update
-    # authorize @boat
     if @boat.update(boat_params)
       redirect_to boat_path(@boat)
     else
       render :edit
     end
+    authorize @boat
   end
 
   def destroy
-    # authorize @boat
     @boat.destroy
     redirect_to boats_path
+    authorize @boat
   end
 
   private
