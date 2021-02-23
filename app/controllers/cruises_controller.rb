@@ -32,7 +32,6 @@ class CruisesController < ApplicationController
   def update
     @cruise = Cruise.find(params[:id])
     authorize @cruise
-    
     if @cruise.update(cruise_params)
       redirect_to @cruise
     else
