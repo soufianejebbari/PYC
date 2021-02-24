@@ -10,6 +10,15 @@ class CruisesController < ApplicationController
     else
       @cruises = policy_scope(Cruise)
     end
+
+    @markers = @cruises.geocoded.map do |cruise|
+      {
+        lat: cruise.latitude,
+        lng: cruise.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { cruise: cruise }),
+        # image_url: helpers.asset_url('notre logo.png')
+      }
+    end
   end
 
   def show

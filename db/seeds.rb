@@ -150,4 +150,3 @@ puts "#{Boat.all.length} boats created"
 
 # board image to do after cloudinary setup
 # image_url = html_doc.at('.image-inset img').attribute('src').value
-

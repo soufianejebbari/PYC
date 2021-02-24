@@ -12,6 +12,11 @@ class Cruise < ApplicationRecord
   validates :end_location, presence: true
   validates :difficulty, presence: true
 
+<<<<<<< HEAD
+  geocoded_by :start_location
+  after_validation :geocode, if: :will_save_change_to_start_location?
+=======
   geocoded_by :address
   # after_validation :geocode, if: :will_save_change_to_address?
+>>>>>>> 0202784d9f394eded720ecf95a061398c14a68af
 end
