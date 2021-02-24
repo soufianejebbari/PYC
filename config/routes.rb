@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   devise_for :users,
               path: '',
               path_names: {sign_in: 'login', sign_out: 'logout', edit: 'profile'}
-  resources :users, only: :show
+  resources :users, only: :show do
+    resources :boats, only: [:index]
+  end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
@@ -12,7 +14,7 @@ Rails.application.routes.draw do
     resources :bookings, only: [:index, :show, :new, :create]
   end
 
-  resources :boats
+  resources :boats, only:  [:new, :create, :update, :edit]
   get 'dashboard', to: 'dashboards#dashboard'
 
 end
