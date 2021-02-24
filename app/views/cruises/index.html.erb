@@ -1,13 +1,11 @@
-<<<<<<< HEAD
 <div id="map"
      style="width: 100%; height: 600px;"
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-=======
+
 <% @cruises.each do |cruise| %>
   <%= link_to "This is a cruise card", cruise_path(cruise) %>
 <% end %>
 
 <%= link_to "Add a new cruise", new_cruise_path %>
 <%= link_to "Avatar", user_path(@current_user) %>
->>>>>>> 0202784d9f394eded720ecf95a061398c14a68af
