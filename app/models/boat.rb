@@ -7,5 +7,4 @@ class Boat < ApplicationRecord
   validates :description, presence: true
   validates :capacity, presence: true
   validates :category, presence: true
-  validates :activity, presence: true
 end

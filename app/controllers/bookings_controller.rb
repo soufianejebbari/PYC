@@ -9,7 +9,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.cruise = @cruise
-    # authorize @booking
+    authorize @booking
 
     if @booking.save
       flash[:alert] = "Congrats! You have booked this board"
