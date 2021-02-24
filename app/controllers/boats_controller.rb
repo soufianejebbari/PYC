@@ -2,17 +2,23 @@ class BoatsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_boat, only: [:show, :edit, :update, :destroy]
 
+  # def index
+  #   # @boats = Boat.all
+  #   if params[:search]
+  #     if params[:search][:query].present?
+  #       @boats = policy_scope(Boat).near(params[:search][:query], 5)
+  #     else
+  #       @boats = policy_scope(Boat)
+  #     end
+  #   else
+  #     @boats = policy_scope(Boat)
+  #   end
+  # end
+
   def index
-    # @boats = Boat.all
-    if params[:search]
-      if params[:search][:query].present?
-        @boats = policy_scope(Boat).near(params[:search][:query], 5)
-      else
-        @boats = policy_scope(Boat)
-      end
-    else
-      @boats = policy_scope(Boat)
-    end
+    @user = User.find(params[:user_id])
+    @boats = Boat.where(user:@user)
+    @boats = policy_scope(Boat)
   end
 
   def show
@@ -35,6 +41,7 @@ class BoatsController < ApplicationController
   end
 
   def edit
+    authorize @boat
   end
 
   def update
@@ -59,6 +66,6 @@ class BoatsController < ApplicationController
   end
 
   def set_boat
-    @boat = Boat.find(params[:id])
+    @boat = Boat.find(params[:user_id])
   end
 end
