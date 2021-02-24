@@ -117,7 +117,7 @@ cruises = [{
 }]
 
 cruises.each do |cruise|
-  cruisy = cruise.new(cruise)
+  cruisy = Cruise.new(cruise)
   p cruisy
   cruisy.valid?
   cruisy.save!
