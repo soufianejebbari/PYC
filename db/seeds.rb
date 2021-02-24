@@ -5,8 +5,8 @@ require "yaml"
 require 'date'
 
 puts "Destroying all instances"
-Boat.destroy_all
 Cruise.destroy_all
+Boat.destroy_all
 Booking.destroy_all
 Review.destroy_all
 Message.destroy_all
@@ -112,17 +112,28 @@ cruises = [{
   end_location: "Bonifacio",
   price: rand(90..300),
   start_date: Date.today,
-  end_date: Date.today+1,
-  boat: Boat.first,
+  end_date: Date.today+1
+
 }]
 
 cruises.each do |cruise|
-  cruisy = Cruise.new(cruise)
+  cruisy = cruise.new(cruise)
   p cruisy
   cruisy.valid?
   cruisy.save!
   # boaty.photos.attach(boaty.photo)
 end
+
+# locations = [{
+#   name: "Porto Vecchio",
+#   latitude: 41.591369,
+#   longitude: 9.278311
+# },
+# { name: "Bonifacio",
+#   latitude: 41.387174,
+#   longitude: 9.159269
+# }
+# ]
 
   # activity = ["scuba diving", "paddle", "Canoe", "water skiing"].sample
 
