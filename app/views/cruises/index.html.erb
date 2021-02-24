@@ -1,1 +1,6 @@
-<%= link_to "This is a cruise card", cruise_path(@cruise), class: "" %>
+<% @cruises.each do |cruise| %>
+  <%= link_to "This is a cruise card", cruise_path(cruise) %>
+<% end %>
+
+<%= link_to "Add a new cruise", new_cruise_path %>
+<%= link_to "Avatar", user_path(@user) %>
