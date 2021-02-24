@@ -5,8 +5,8 @@ require "yaml"
 require 'date'
 
 puts "Destroying all instances"
-Cruise.destroy_all
 Boat.destroy_all
+Cruise.destroy_all
 Booking.destroy_all
 Review.destroy_all
 Message.destroy_all
@@ -112,8 +112,8 @@ cruises = [{
   end_location: "Bonifacio",
   price: rand(90..300),
   start_date: Date.today,
-  end_date: Date.today+1
-
+  end_date: Date.today+1,
+  boat: Boat.first,
 }]
 
 cruises.each do |cruise|
