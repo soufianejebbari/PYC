@@ -15,7 +15,7 @@ const initMapbox = () => {
       mapboxgl: mapboxgl }));
 
     const markers = JSON.parse(mapElement.dataset.markers);
-    if (markers.length > 1) {
+    // if (markers.length > 1) {
     markers.forEach((marker) => {
         const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
 
@@ -32,30 +32,35 @@ const initMapbox = () => {
           .setPopup(popup)
           .addTo(map);
     });
-      const fitMapToMarkers = (map, markers) => {
-        const bounds = new mapboxgl.LngLatBounds();
-        markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
-        map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
-        };
+
         fitMapToMarkers(map, markers);
-      } else {
-        let element = document.createElement('div');
-        element.className = 'marker';
-        element.style.backgroundImage = `url('${markers.image_url}')`;
-        console.log(markers.image_url);
-        element.style.backgroundSize = 'contain';
-        element.style.width = '30px';
-        element.style.height = '30px';
-        console.log(element);
-        new mapboxgl.Marker(element)
-        .setLngLat([markers.lng, markers.lat])
-        .addTo(map);
-        const bounds = new mapboxgl.LngLatBounds();
-        bounds.extend([ markers.lng, markers.lat ]);
-        map.fitBounds(bounds, { padding: 70, maxZoom: 10, duration: 0 });
-      };
+      // }
+      // else {
+        // let element = document.createElement('div');
+        // element.className = 'marker';
+        // // element.style.backgroundImage = `url('${markers.image_url}')`;
+        // console.log(markers.image_url);
+        // element.style.backgroundSize = 'contain';
+        // element.style.width = '30px';
+        // element.style.height = '30px';
+        // element.innerText = 'Toto'
+        // console.log(element);
+        // console.log(markers[0].lng);
+        // new mapboxgl.Marker(element)
+        // .setLngLat([markers[0].lng, markers[0].lat])
+        // .addTo(map);
+        // const bounds = new mapboxgl.LngLatBounds();
+        // bounds.extend([ markers[0].lng, markers[0].lat ]);
+        // map.fitBounds(bounds, { padding: 70, maxZoom: 10, duration: 0 });
+      // };
     };
 };
+
+  const fitMapToMarkers = (map, markers) => {
+    const bounds = new mapboxgl.LngLatBounds();
+    markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
+    map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
+  };
 
 
   const addMarkersToMap = (map, markers) => {
