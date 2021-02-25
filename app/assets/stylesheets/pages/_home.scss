@@ -1,9 +1,7 @@
 // Specific CSS for your home-page
 
 .home-wrapper {
-  overflow: hidden;
   height: 70vh;
-  display: flex;
   margin: 5px;
 }
 
@@ -35,47 +33,48 @@ p.home {
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 
 .btn-home {
+  position: relative;
   width: 500px;
   padding: 10px;
-  position: fixed;
-  top: 90%;
+  top: 40%;
   left: 28%;
 }
 
 .img-wrapper {
-  position: absolute;
-  overflow: hidden;
-  width: 99vw;
+  position: fixed;
+  bottom: 5px;
+  background-image: url(home.jpeg);
   margin: 5px;
-  bottom: 4px;
-  transition: height .5s ease-in-out;
-  transition-delay: 5s;
+  width: 99vw;
+  z-index: -100;
 }
 
 .img-wrapper-small {
-  height: 28vh;
+  height: 20vh;
 }
 
 .img-wrapper-full {
   height: 98vh;
 }
 
-// .img-full {
+.img-full {
+  position: absolute;
+  overflow: hidden;
+  left: 0;
+  height: 0vh;
+  filter: brightness(40%);
+}
+
+// .img-wrapper-small .img-full {
 //   position: absolute;
 //   left: 0;
 //   width: 150%;
+//   bottom: -400px;
 // }
 
-.img-wrapper-small .img-full {
-  position: absolute;
-  left: 0;
-  width: 150%;
-  bottom: -400px;
-}
-
-.img-wrapper-full .img-full {
-  position: absolute;
-  left: 0;
-  width: 150%;
-  bottom: -230px;
-}
+// .img-wrapper-full .img-full {
+//   position: absolute;
+//   left: 0;
+//   width: 150%;
+//   bottom: -230px;
+// }

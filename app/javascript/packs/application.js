@@ -27,7 +27,7 @@ import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
 
 // Internal imports, e.g:
-import { initImgOnScroll } from '../components/init_img_on_scroll';
+// import { initImgOnScroll } from '../components/init_img_on_scroll';
 
 // import { initSelect2 } from '../components/init_select2';
 
@@ -35,5 +35,5 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initMapbox();
-  initImgOnScroll();
+  // initImgOnScroll();
 });

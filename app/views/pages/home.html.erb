@@ -3,5 +3,7 @@
   <%= image_tag "logo_black.png", alt: "PYC", class: "logo-full" %>
 </div>
 
-<div class="img-wrapper img-wrapper-small"> <%= image_tag "home.jpeg", alt: "PYC", class: "img-full" %> </div>
+<div class="img-wrapper img-wrapper-small">
+<%= video_tag "homepage_background.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, class: "img-full"%>
 <%= link_to "Plan a trip", cruises_path, class: "btn btn-home btn-success" %>
+</div>
