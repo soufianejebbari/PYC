@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_24_143148) do
+ActiveRecord::Schema.define(version: 2021_02_24_111345) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,17 +40,17 @@ ActiveRecord::Schema.define(version: 2021_02_24_143148) do
     t.date "start_date"
     t.date "end_date"
     t.integer "price"
-    t.string "start_location"
-    t.string "end_location"
     t.bigint "boat_id", null: false
+    t.bigint "start_location_id"
+    t.bigint "end_location_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
     t.string "description"
     t.integer "difficulty"
-    t.float "latitude"
-    t.float "longitude"
     t.index ["boat_id"], name: "index_cruises_on_boat_id"
+    t.index ["end_location_id"], name: "index_cruises_on_end_location_id"
+    t.index ["start_location_id"], name: "index_cruises_on_start_location_id"
   end
 
   create_table "locations", force: :cascade do |t|
@@ -98,6 +98,8 @@ ActiveRecord::Schema.define(version: 2021_02_24_143148) do
   add_foreign_key "bookings", "cruises"
   add_foreign_key "bookings", "users"
   add_foreign_key "cruises", "boats"
+  add_foreign_key "cruises", "locations", column: "end_location_id"
+  add_foreign_key "cruises", "locations", column: "start_location_id"
   add_foreign_key "messages", "bookings"
   add_foreign_key "messages", "users"
   add_foreign_key "reviews", "cruises"
