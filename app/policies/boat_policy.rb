@@ -14,10 +14,10 @@ class BoatPolicy < ApplicationPolicy
   end
 
   def edit?
-    user == @record.user
+    user.boats.count > 0
   end
 
   def delete?
-    user == @record.user
+    user == record.user
   end
 end

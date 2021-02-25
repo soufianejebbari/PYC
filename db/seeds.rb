@@ -19,6 +19,8 @@ puts "done destroying"
 
 # first_name = Faker::Name.first_name
   # last_name = Faker::Name.last_name
+
+  2.times do
   email = Faker::Internet.email
   password = "123456"
 
@@ -27,6 +29,7 @@ puts "done destroying"
   user_photo_url = "https://thispersondoesnotexist.com/image"
   user_photo_file = URI.open(user_photo_url)
   user.photo.attach(io: user_photo_file, filename: "user_photo")
+end
 
 boats = [{
   name: "Cash à l'eau",

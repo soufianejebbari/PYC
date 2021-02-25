@@ -1,6 +1,13 @@
 <h1> Hello, I'm The Captain </h1>
 
+<% if policy(Cruise).create? %>
+  <%= link_to "New Cruise", new_cruise_path %>
+<% end %>
 
-<%= link_to "Add a new cruise", new_cruise_path %>
-<%= link_to "Add a boat", new_boat_path %>
+<% if policy(Boat).edit? %>
 <%= link_to "See my boat(s)", user_boats_path(current_user) %>
+<% end %>
+
+<% if User.find(params[:id]) == current_user%>
+<%= link_to "Add a boat", new_boat_path %>
+<% end %>

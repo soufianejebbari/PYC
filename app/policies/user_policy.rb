@@ -14,10 +14,10 @@ class UserPolicy < ApplicationPolicy
   end
 
   def edit?
-    user == @record.user
+    user == record.user
   end
 
   def delete?
-    user == @record.user
+    user == record.user
   end
 end
