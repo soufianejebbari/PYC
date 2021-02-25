@@ -22,12 +22,12 @@ class CruisesController < ApplicationController
     else
       @cruises = Cruise.all
     end
-
-    @markers = @cruises.geocoded.map do |cruise|
+    @locations = Location.all
+    @markers = @locations.geocoded.map do |location|
       {
-        lat: cruise.latitude,
-        lng: cruise.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { cruise: cruise }),
+        lat: location.latitude,
+        lng: location.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { location: location.cruises }),
         image_url: helpers.asset_url('marker_dark.png')
       }
     end
