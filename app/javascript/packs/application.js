@@ -38,13 +38,13 @@ document.addEventListener('turbolinks:load', () => {
   // initImgOnScroll();
 });
 
-$(document).ready(function() {
+// $(document).ready(function() {
 
-  $(".menu-link").click(function(event) {
-    event.preventDefault();
-    $(".menu-overlay").toggleClass("open");
-    $(".menu").toggleClass("open");
+//   $(".menu-link").click(function(event) {
+//     event.preventDefault();
+//     $(".menu-overlay").toggleClass("open");
+//     $(".menu").toggleClass("open");
 
-  });
+//   });
 
-});
+// });

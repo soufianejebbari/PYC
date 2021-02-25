@@ -1,37 +1,66 @@
+<!-- <div style="<%= 'background: transparent' if params[:action] == 'home'%>" class="navbar navbar-expand-sm navbar-lewagon">
+  <div style="<%= 'opacity: 0' if params[:action] == 'home' %>">
+    <%= link_to root_path do %>
+      <%= image_tag "logo_black.png", class: "logo-navbar"%>
+    <% end %>
+  </div>
+
+  <div class="menu">
+    <li>
+      <%= link_to '#' do %>
+        <span class="hamburger-icon">
+          <span class="hamburger-bar hamburger-bar-1"></span>
+          <span class="hamburger-bar hamburger-bar-2"></span>
+          <span class="hamburger-bar hamburger-bar-3"></span>
+        </span>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to user_path(current_user) do %>
+        <%= image_tag "https://thispersondoesnotexist.com/image", class: "avatar" %>
+      <% end %>
+    </li>
+  </div>
+
+  <div>
+    <nav class="overlay-menu">
+      <ul>
+        <li><%= link_to "Dashboard", dashboard_path %></li>
+        <li><%= link_to "Book a cruise", cruises_path %></li>
+        <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+      </ul>
+    </nav>
+  </div>
+</div> -->
+
 <div style="<%= 'background: transparent' if params[:action] == 'home'%>" class="navbar navbar-expand-sm navbar-lewagon">
-  <h2 style="<%= 'opacity: 0' if params[:action] == 'home' %>" >
-    <%= link_to "PYC", root_path %>
-  </h2>
+  <div style="<%= 'opacity: 0' if params[:action] == 'home' %>">
+    <%= link_to root_path do %>
+      <%= image_tag "logo_black.png", class: "logo-navbar"%>
+    <% end %>
+  </div>
 
-<div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <li>
-          <div class="menu">
-            <a href="#" class="menu-link">
-              <span class="hamburger-icon">
-                <span class="hamburger-bar hamburger-bar-1"></span>
-                <span class="hamburger-bar hamburger-bar-2"></span>
-                <span class="hamburger-bar hamburger-bar-3"></span>
-              </span>
-            </a>
-          </div>
 
-          <div class="menu-overlay">
-            <nav class="overlay-menu">
-              <ul>
-                <li><%= link_to "Dashboard", dashboard_path %></li>
-                <li><%= link_to "Book a cruise", cruises_path %></li>
-                <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
-              </ul>
-            </nav>
+        <li class="nav-item dropdown">
+          <%= image_tag "menu.png", class: "menu dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            <%= link_to "Book a cruise", cruises_path, class: "dropdown-item" %>
+            <%= link_to "Dashboard", dashboard_path, class: "dropdown-item" %>
           </div>
         </li>
-        <li>
-          <%= link_to user_path(current_user) do %>
-            <%= image_tag "https://thispersondoesnotexist.com/image", class: "avatar" %>
-          <% end %>
+
+        <li class="nav-item active">
+          <div>
+            <%= link_to user_path(current_user) do%>
+              <%= image_tag "https://thispersondoesnotexist.com/image", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% end %>
+          </div>
         </li>
+
       <% else %>
         <li class="nav-item">
           <%= link_to "Login", new_user_session_path, class: "nav-link" %>
@@ -40,23 +69,3 @@
     </ul>
   </div>
 </div>
-
-<!-- <div class="menu">
-  <a href="#" class="menu-link">
-    <span class="hamburger-icon">
-      <span class="hamburger-bar hamburger-bar-1"></span>
-      <span class="hamburger-bar hamburger-bar-2"></span>
-      <span class="hamburger-bar hamburger-bar-3"></span>
-    </span>
-  </a>
-</div>
-
-<div class="menu-overlay">
-  <nav class="overlay-menu">
-    <ul>
-      <li><%= link_to "Dashboard", dashboard_path %></li>
-      <li><%= link_to "Book a cruise", cruises_path %></li>
-      <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
-    </ul>
-  </nav>
-</div> -->
