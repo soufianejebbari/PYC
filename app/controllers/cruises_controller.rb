@@ -11,6 +11,18 @@ class CruisesController < ApplicationController
       @cruises = policy_scope(Cruise)
     end
 
+    if params[:query].present?
+      sql_query = " \
+        cruises.name  @@ :query \
+        OR boats.name @@ :query \
+        OR cruises.start_location @@ :query \
+        OR cruises.end_location @@ :query \
+      "
+      @cruises = Cruise.joins(:boat).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @cruises = Cruise.all
+    end
+
     @markers = @cruises.geocoded.map do |cruise|
       {
         lat: cruise.latitude,
