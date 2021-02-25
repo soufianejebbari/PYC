@@ -1,29 +1,28 @@
 // Specific CSS for your home-page
-.home_video {
-  background-color: black;
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
+
+.home-wrapper {
+  overflow: hidden;
+  height: 70vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  object-fit: cover;
-  top: 0;
-  z-index: -1;
-  filter: blur(0px) brightness(80%);
+  margin: 5px;
 }
 
-.home-video-wrapper {
-  height: 77vh;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  vertical-align: middle;
-  justify-content: center;
+p.home {
+  width: 500px;
+  text-align: center;
+  color: black;
+  font-size: 24px;
+  position: fixed;
+  top: 5%;
+  left: 28%;
 }
 
 .logo_full {
   width: 500px;
+  position: fixed;
+  left: 28%;
+  top: 9%;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.08));
   transition: transform 50s ease-out;
 }
 
@@ -35,24 +34,29 @@
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 
-.home-video-wrapper .btn-home{
+.btn-home {
+  width: 500px;
+  padding: 10px;
+  position: fixed;
+  top: 90%;
+  left: 28%;
+}
+
+.img-wrapper {
+  position: relative;
+  overflow: hidden;
+  height: 28vh;
+  display: flex;
+  margin: 5px;
+  transition: height .5s ease-in-out;
+}
+
+.img-wrapper:hover {
+  position: relative;
+  height: 98vh;
+  margin: 5px;
+}
+
+.img_full {
   position: absolute;
-  background-color: #FFD336;
-  font-size: 20px;
-  border-radius: 40px;
-  padding: 13px 120px;
-  margin: 0;
-  font-weight: lighter;
-  /* width: 30%; */
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  bottom: 30%;
-}
-
-.btn:hover {
-  background-color: transparent;
-  border: 1px solid #FFD336;
-}
-
-.btn-home:hover {
-  color: white;
 }
