@@ -12,12 +12,21 @@ User.destroy_all
 # Review.destroy_all
 # Message.destroy_all
 
-
-
 puts "done destroying"
 
-user1 = User.create!(email: "user1@gmail.com", password: 123456)
-user2 = User.create!(email: "user2@gmail.com", password: 123456)
+# user1 = User.create!(email: "user1@gmail.com", password: 123456)
+# user2 = User.create!(email: "user2@gmail.com", password: 123456)
+
+# first_name = Faker::Name.first_name
+  # last_name = Faker::Name.last_name
+  email = Faker::Internet.email
+  password = "123456"
+
+  user = User.create!(email: email, password: password)
+
+  user_photo_url = "https://thispersondoesnotexist.com/image"
+  user_photo_file = URI.open(user_photo_url)
+  user.photo.attach(io: user_photo_file, filename: "user_photo")
 
 boats = [{
   name: "Cash à l'eau",
@@ -108,12 +117,18 @@ boats.each do |boat|
   # boaty.photos.attach(boaty.photo)
 end
 
+porto_vecchio = Location.new(name: "Porto Vecchio")
+porto_vecchio.save!
+
+bonifacio = Location.new(name: "Bonifacio")
+bonifacio.save!
+
 cruises = [{
   name: "Nice trip all around Corsica",
   description: Faker::Lorem.paragraph,
   difficulty: 3,
-  start_location: "Porto Vecchio",
-  end_location: "Bonifacio",
+  start_location: porto_vecchio,
+  end_location: bonifacio,
   price: rand(90..300),
   start_date: Date.today,
   end_date: Date.today+1
@@ -144,16 +159,6 @@ end
 
   # price = rand(10..40)
 
-  # first_name = Faker::Name.first_name
-  # last_name = Faker::Name.last_name
-  # email = Faker::Internet.email
-  # password = "123456"
-
-  # user = User.create!(first_name: first_name, last_name: last_name, email: email, password: password)
-
-  # user_photo_url = "https://thispersondoesnotexist.com/image"
-  # user_photo_file = URI.open(user_photo_url)
-  # user.photo.attach(io: user_photo_file, filename: "user_photo")
 
   # file = URI.open(image_url)
 
