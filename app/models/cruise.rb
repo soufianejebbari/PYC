@@ -3,9 +3,8 @@ class Cruise < ApplicationRecord
   has_many :bookings, dependent: :destroy
 
   # has_many :reviews, dependent: :destroy
-  has_one :start_location, class_name: "Location", foreign_key: "start_location_id"
-  has_one :end_location, class_name: "Location", foreign_key: "end_location_id"
-
+  belongs_to :start_location, class_name: "Location", foreign_key: "start_location_id"
+  belongs_to :end_location, class_name: "Location", foreign_key: "end_location_id"
 
   validates :name, presence: true
   validates :description, presence: true
