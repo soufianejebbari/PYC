@@ -4,6 +4,17 @@
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
 
+<!-- [...] -->
+<%= form_tag cruises_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a cruise"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+<!-- the list of cruises -->
+
 <% @cruises.each do |cruise| %>
   <%= link_to "This is a cruise card", cruise_path(cruise) %>
 <% end %>
