@@ -123,12 +123,30 @@ porto_vecchio.save!
 bonifacio = Location.new(name: "Bonifacio")
 bonifacio.save!
 
+locations = [{
+    name: "Porto Vecchio",
+    latitude: 41.591369,
+    longitude: 9.278311
+  },
+  { name: "Bonifacio",
+    latitude: 41.387174,
+    longitude: 9.159269
+  }
+]
+locations.each do |location|
+  locationy = Location.new(location)
+  p locationy
+  locationy.valid?
+  locationy.save!
+  # boaty.photos.attach(boaty.photo)
+end
+
 cruises = [{
   name: "Nice trip all around Corsica",
   description: Faker::Lorem.paragraph,
   difficulty: 3,
-  start_location: porto_vecchio,
-  end_location: bonifacio,
+  start_location: Location.all.first,
+  end_location: Location.all.first,
   price: rand(90..300),
   start_date: Date.today,
   end_date: Date.today+1
@@ -143,16 +161,7 @@ cruises.each do |cruise|
   # boaty.photos.attach(boaty.photo)
 end
 
-# locations = [{
-#   name: "Porto Vecchio",
-#   latitude: 41.591369,
-#   longitude: 9.278311
-# },
-# { name: "Bonifacio",
-#   latitude: 41.387174,
-#   longitude: 9.159269
-# }
-# ]
+
 
   # activity = ["scuba diving", "paddle", "Canoe", "water skiing"].sample
 
