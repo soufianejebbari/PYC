@@ -48,6 +48,7 @@ class CruisesController < ApplicationController
     @cruise = Cruise.new(cruise_params)
     authorize @cruise
     if @cruise.save
+      flash[:alert] = "Congrats! Your cruise has been created!"
       redirect_to cruise_path(@cruise)
     else
       render :new
