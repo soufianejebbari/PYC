@@ -31,7 +31,7 @@ gem 'pundit'
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
-
+gem 'pg_search', '~> 2.3.0'
 gem 'devise'
 gem 'geocoder'
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
