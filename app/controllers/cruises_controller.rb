@@ -22,12 +22,12 @@ class CruisesController < ApplicationController
     else
       @cruises = Cruise.all
     end
-
-    @markers = @cruises.geocoded.map do |cruise|
+    @locations = Location.all
+    @markers = @locations.geocoded.map do |location|
       {
-        lat: cruise.latitude,
-        lng: cruise.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { cruise: cruise }),
+        lat: location.latitude,
+        lng: location.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { location: location.cruises }),
         image_url: helpers.asset_url('marker_dark.png')
       }
     end
@@ -47,9 +47,8 @@ class CruisesController < ApplicationController
   def create
     @cruise = Cruise.new(cruise_params)
     authorize @cruise
-    raise
     if @cruise.save
-      redirect_to user_path(current_user)
+      redirect_to cruise_path(@cruise)
     else
       render :new
     end
@@ -73,6 +72,6 @@ class CruisesController < ApplicationController
   private
 
   def cruise_params
-    params.require(:cruise).permit(:name, :description, :start_date, :end_date, :price, :start_location, :end_location, :difficulty)
+    params.require(:cruise).permit(:name, :description, :start_date, :end_date, :price, :start_location_id, :end_location_id, :difficulty, :boat_id)
   end
 end
