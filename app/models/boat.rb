@@ -1,7 +1,7 @@
 class Boat < ApplicationRecord
   belongs_to :user
   has_many :cruises, dependent: :destroy
-  # has_many_attached :photos
+  has_many_attached :photos
 
   validates :name, presence: true
   validates :description, presence: true

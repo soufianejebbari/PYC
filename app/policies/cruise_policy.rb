@@ -6,7 +6,7 @@ class CruisePolicy < ApplicationPolicy
   end
 
   def create?
-    return true
+    user.boats.count > 0
   end
 
   def show?
@@ -14,10 +14,10 @@ class CruisePolicy < ApplicationPolicy
   end
 
   def edit?
-    user == @record.user
+    user == record.user
   end
 
   def delete?
-    user == @record.user
+    user == record.user
   end
 end
