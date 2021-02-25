@@ -1,66 +1,80 @@
 // Specific CSS for your home-page
-.home_video {
-  background-color: black;
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  object-fit: cover;
-  top: 0;
-  z-index: -1;
-  filter: blur(0px) brightness(80%);
-}
 
-.home-video-wrapper {
-  height: 77vh;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  vertical-align: middle;
-  justify-content: center;
-}
-
-h1.home {
-  color: white;
-  font-size: 140px;
+.home-wrapper {
+  height: 70vh;
+  margin: 5px;
 }
 
 p.home {
-  color: white;
-  font-size: 40px;
-  position: absolute;
-  top: 50%;
-}
-
-p.description {
-  font-size: 45px;
-  //font-style: italic;
-  top: 50vh;
+  width: 500px;
   text-align: center;
-  font-weight: lighter;
-  line-height: 1.3;
+  color: black;
+  font-size: 24px;
+  position: fixed;
+  top: 5%;
+  left: 28%;
 }
 
-.home-video-wrapper .btn-home{
+.logo-full {
+  width: 500px;
+  position: fixed;
+  left: 28%;
+  top: 9%;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.08));
+  transition: transform 50s ease-out;
+}
+
+.logo-full:hover {
+  transform: rotate(360deg);
+}
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+.btn-home {
+  position: relative;
+  width: 500px;
+  padding: 10px;
+  top: 40%;
+  left: 28%;
+}
+
+.img-wrapper {
+  position: fixed;
+  bottom: 5px;
+  background-image: url(home.jpeg);
+  margin: 5px;
+  width: 99vw;
+  z-index: -100;
+}
+
+.img-wrapper-small {
+  height: 20vh;
+}
+
+.img-wrapper-full {
+  height: 98vh;
+}
+
+.img-full {
   position: absolute;
-  background-color: #FFD336;
-  font-size: 20px;
-  border-radius: 40px;
-  padding: 13px 120px;
-  margin: 0;
-  font-weight: lighter;
-  /* width: 30%; */
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  bottom: 30%;
+  overflow: hidden;
+  left: 0;
+  height: 0vh;
+  filter: brightness(40%);
 }
 
-.btn:hover {
-  background-color: transparent;
-  border: 1px solid #FFD336;
-}
+// .img-wrapper-small .img-full {
+//   position: absolute;
+//   left: 0;
+//   width: 150%;
+//   bottom: -400px;
+// }
 
-.btn-home:hover {
-  color: white;
-}
+// .img-wrapper-full .img-full {
+//   position: absolute;
+//   left: 0;
+//   width: 150%;
+//   bottom: -230px;
+// }

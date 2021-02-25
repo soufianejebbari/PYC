@@ -1,6 +1,9 @@
-<div class="home-video-wrapper">
-  <%= video_tag "homepage_background.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, class: "home_video blur brightness"%>
-  <!-- <p class="home">Welcome to</p> -->
-  <h1 class="home"> <span>PYC</span></h1>
-  <%= link_to "Plan a trip", cruises_path, class: "btn btn-primary" %>
+<div class="home-wrapper">
+  <p class="home">Welcome to</p>
+  <%= image_tag "logo_black.png", alt: "PYC", class: "logo-full" %>
+</div>
+
+<div class="img-wrapper img-wrapper-small">
+<%= video_tag "homepage_background.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, class: "img-full"%>
+<%= link_to "Plan a trip", cruises_path, class: "btn btn-home btn-success" %>
 </div>
