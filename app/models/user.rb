@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :bookings, dependent: :destroy
   has_many :messages, dependent: :destroy
-  # has_one_attached :photo
+  has_one_attached :photo
 
   validates :email, presence: true, uniqueness: true
   validates :encrypted_password, presence: true
