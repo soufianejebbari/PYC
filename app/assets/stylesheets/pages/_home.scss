@@ -9,17 +9,17 @@ p.home {
   width: 500px;
   text-align: center;
   color: black;
-  font-size: 24px;
+  font-size: 18px;
   position: fixed;
-  top: 5%;
-  left: 28%;
+  top: 8%;
+  left: 30%;
 }
 
 .logo-full {
   width: 500px;
   position: fixed;
-  left: 28%;
-  top: 9%;
+  left: 30%;
+  top: 17%;
   filter: drop-shadow(0 2px 6px rgba(0,0,0,0.08));
   transition: transform 50s ease-out;
 }
@@ -36,14 +36,21 @@ p.home {
   position: relative;
   width: 500px;
   padding: 10px;
-  top: 40%;
-  left: 28%;
+  top: 30%;
+  left: 30%;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: background-color .2s ease-in-out;
+}
+
+.btn-home:hover {
+  background-color: transparent;
+  border: $green 1px solid;
 }
 
 .img-wrapper {
   position: fixed;
   bottom: 5px;
-  background-image: url(home.jpeg);
+  //background-image: url(home.jpeg);
   margin: 5px;
   width: 99vw;
   z-index: -100;
@@ -78,3 +85,40 @@ p.home {
 //   width: 150%;
 //   bottom: -230px;
 // }
+
+.create p {
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  letter-spacing: 0;
+  color: $light;
+}
+
+.create i {
+  font-size: 18px;
+}
+
+p span {
+  display: inline-table;
+}
+
+.create span:nth-child(even) {
+  overflow: hidden;
+  letter-spacing: -1em;
+  opacity: 0;
+  transition: all .3s ease-in-out;
+  transition: opacity .1s ease-in-out;
+}
+
+.create:hover span:nth-child(even) {
+  letter-spacing: 0;
+  opacity: 1;
+  color: $dark;
+}
+
+.create:hover i {
+  letter-spacing: 0;
+  color: $dark;
+  opacity: 0;
+  display: none;
+}

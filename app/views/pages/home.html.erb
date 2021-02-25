@@ -1,9 +1,17 @@
 <div class="home-wrapper">
-  <p class="home">Welcome to</p>
+  <% if user_signed_in? %>
+    <p class="home">Hello <%= current_user.email %>, <br> welcome back to</p>
+  <% else %>
+    <p class="home">Welcome to</p>
+  <% end %>
   <%= image_tag "logo_black.png", alt: "PYC", class: "logo-full" %>
 </div>
 
 <div class="img-wrapper img-wrapper-small">
 <%= video_tag "homepage_background.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, class: "img-full"%>
-<%= link_to "Plan a trip", cruises_path, class: "btn btn-home btn-success" %>
+<%= link_to cruises_path, class: "create btn btn-home btn-success" do %>
+  <p class="btn-create"> <span><i class="fas fa-anchor"></i>&nbsp;&nbsp;</span><span id="span-color">plan your trip</span></p>
+<% end %>
 </div>
+
+<!-- <div class="create justify-content-center">
