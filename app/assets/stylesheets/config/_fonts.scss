@@ -2,49 +2,48 @@
 // @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
 
 // Define fonts for body and headers
-$body-font: "abc_prophet_trialbold", "Helvetica", "sans-serif";
-$headers-font: "abc_prophet_trialbold", "Helvetica", "sans-serif";
+$body-font: "Prophet", "Helvetica", "sans-serif";
+$headers-font: "Romana", "Helvetica", "sans-serif";
 
 // To use a font file (.woff) uncomment following lines
 
 @font-face {
-    font-family: 'abc_prophet_trialbold';
+    font-family: 'Prophet';
     src: url('abcprophet-bold-trial-webfont.woff') format('woff');
-    font-weight: normal;
+    font-weight: bold;
     font-style: normal;
 }
-$my-text-font: "abc_prophet_trialbold";
 
 @font-face {
-    font-family: 'abc_prophet_triallight';
+    font-family: 'Prophet';
     src: url('abcprophet-light-trial-webfont.woff') format('woff');
-    font-weight: normal;
+    font-weight: lighter;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'abc_prophet_triallight_italic';
+    font-family: 'Prophet';
     src: url('abcprophet-lightitalic-trial-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+    font-weight: lighter;
+    font-style: italic;
 }
 
 @font-face {
-    font-family: 'abc_prophet_trialmedium';
+    font-family: 'Prophet';
     src: url('abcprophet-medium-trial-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'romana_btbold';
+    font-family: 'Romana';
     src: url('romanabtbold-webfont.woff') format('woff');
-    font-weight: normal;
+    font-weight: bold;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'romana_btroman';
+    font-family: 'Romana';
     src: url('romanabtroman-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;

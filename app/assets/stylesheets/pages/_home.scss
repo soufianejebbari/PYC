@@ -22,27 +22,18 @@
   justify-content: center;
 }
 
-h1.home {
-  color: white;
-  font-size: 140px;
-  font-family: $my-text-font;
+.logo_full {
+  width: 500px;
+  transition: transform 50s ease-out;
 }
 
-p.home {
-  color: white;
-  font-size: 40px;
-  position: absolute;
-  top: 50%;
+.logo_full:hover {
+  transform: rotate(360deg);
 }
 
-p.description {
-  font-size: 45px;
-  //font-style: italic;
-  top: 50vh;
-  text-align: center;
-  font-weight: lighter;
-  line-height: 1.3;
-}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 
 .home-video-wrapper .btn-home{
   position: absolute;

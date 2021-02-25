@@ -1,6 +1,5 @@
 <div class="home-video-wrapper">
   <%= video_tag "homepage_background.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, class: "home_video blur brightness"%>
-  <!-- <p class="home">Welcome to</p> -->
-  <h1 class="home"> <span>PYC</span></h1>
+  <%= image_tag "logo_dark.png", alt: "PYC", class: "logo_full" %>
   <%= link_to "Plan a trip", cruises_path, class: "btn btn-primary" %>
 </div>
