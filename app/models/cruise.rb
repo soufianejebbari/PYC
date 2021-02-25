@@ -1,7 +1,7 @@
 class Cruise < ApplicationRecord
   belongs_to :boat
   has_many :bookings, dependent: :destroy
-  has_many :reviews, dependent: :destroy
+  # has_many :reviews, dependent: :destroy
 
   validates :name, presence: true
   validates :description, presence: true

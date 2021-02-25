@@ -35,8 +35,9 @@ class CruisesController < ApplicationController
   def create
     @cruise = Cruise.new(cruise_params)
     authorize @cruise
+    raise
     if @cruise.save
-      redirect_to cruise_path(@cruise)
+      redirect_to user_path(current_user)
     else
       render :new
     end
@@ -60,6 +61,6 @@ class CruisesController < ApplicationController
   private
 
   def cruise_params
-    params.require(:cruise).permit(:name, :description, :start_date, :end_date, :price, :start_location, :end_location, :difficulty, :cruise_id)
+    params.require(:cruise).permit(:name, :description, :start_date, :end_date, :price, :start_location, :end_location, :difficulty)
   end
 end
