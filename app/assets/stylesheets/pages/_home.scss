@@ -17,7 +17,7 @@ p.home {
   left: 28%;
 }
 
-.logo_full {
+.logo-full {
   width: 500px;
   position: fixed;
   left: 28%;
@@ -26,7 +26,7 @@ p.home {
   transition: transform 50s ease-out;
 }
 
-.logo_full:hover {
+.logo-full:hover {
   transform: rotate(360deg);
 }
 
@@ -43,20 +43,39 @@ p.home {
 }
 
 .img-wrapper {
-  position: relative;
-  overflow: hidden;
-  height: 28vh;
-  display: flex;
-  margin: 5px;
-  transition: height .5s ease-in-out;
-}
-
-.img-wrapper:hover {
-  position: relative;
-  height: 98vh;
-  margin: 5px;
-}
-
-.img_full {
   position: absolute;
+  overflow: hidden;
+  width: 99vw;
+  margin: 5px;
+  bottom: 4px;
+  transition: height .5s ease-in-out;
+  transition-delay: 5s;
+}
+
+.img-wrapper-small {
+  height: 28vh;
+}
+
+.img-wrapper-full {
+  height: 98vh;
+}
+
+// .img-full {
+//   position: absolute;
+//   left: 0;
+//   width: 150%;
+// }
+
+.img-wrapper-small .img-full {
+  position: absolute;
+  left: 0;
+  width: 150%;
+  bottom: -400px;
+}
+
+.img-wrapper-full .img-full {
+  position: absolute;
+  left: 0;
+  width: 150%;
+  bottom: -230px;
 }
