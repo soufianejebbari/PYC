@@ -22,7 +22,7 @@
 
         <div class="tag d-flex align-items-center justify-content-between">
           <h1><%= @cruise.name %></h1>
-          <%= link_to user_path(@cruise.boat.user) do %>
+          <%= link_to user_path(@cruise.boat.user), id: "before-avatar" do %>
             <%= image_tag "https://thispersondoesnotexist.com/image", class: "card-trip-user avatar-bordered"%>
           <% end %>
         </div>
