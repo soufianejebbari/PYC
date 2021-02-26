@@ -15,8 +15,9 @@ class CruisesController < ApplicationController
       sql_query = " \
         cruises.name  @@ :query \
         OR boats.name @@ :query \
-        OR cruises.start_location @@ :query \
-        OR cruises.end_location @@ :query \
+        OR boats.category @@ :query \
+        OR locations.start_location @@ :query \
+        OR locations.end_location @@ :query \
       "
       @cruises = Cruise.joins(:boat).where(sql_query, query: "%#{params[:query]}%")
     else
