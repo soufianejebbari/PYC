@@ -60,12 +60,17 @@
 .dropdown-menu {
   border-radius: 3px;
   border: transparent;
-  background-color: transparent;
+  background-color: white;
+}
+
+.dropdown-menu.show {
+  display: inherit;
 }
 
 .navbar-nav .dropdown-menu {
     position: absolute;
-    left: -106px;
+        left: -767px;
+    top: -12px;
 }
 
 // .navbar-nav .dropdown-menu {
@@ -74,10 +79,10 @@
 // }
 
 .dropdown-item {
-  padding: 0 50px;
   font-weight: 200;
   font-size: 13px;
-  text-align: right;
+  text-align: center;
+  padding: 0.5rem 3.1rem;
 }
 
 .dropdown-item:hover {

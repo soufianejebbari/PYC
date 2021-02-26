@@ -46,20 +46,20 @@ a:hover {
 
 .card-trip-infos .card-trip-user {
   position: absolute;
-  right: 16px;
-  top: -20px;
-  width: 40px;
+  right: 13px;
+  top: -18px;
+  width: 30px;
 }
 
 .card-trip-pricing {
   position: absolute;
   top: -185px;
   font-size: 13px;
-  background-color: black;
+  background-color: $green;
   padding: 5px 15px;
-  border-radius: 25px;
-  opacity: .7;
-  color: white;
+  border-radius: 3px;
+  color: $light;
+  font-weight: 100;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   em {
     font-size: 10px;

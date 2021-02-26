@@ -1,16 +1,7 @@
-<%= form_tag cruises_path, method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Find a cruise"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
-
-<div class="create justify-content-center">
-  <%= link_to new_cruise_path do%>
-  <p class="create btn btn-home btn-success"> <span>+&nbsp;</span><span id="span-color">add a new cruise</span></p>
-  <% end %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://source.unsplash.com/GMatv72vtEI/1600x900);">
+  <div class="container">
+    <p>Rent a board and enjoy surfing for a day :</p>
+  </div>
 </div>
 
 <h2 class="container my-3 px-4"> Offers </h2>
@@ -30,7 +21,7 @@
            <%= image_tag "https://thispersondoesnotexist.com/image", class: "card-trip-user avatar-bordered"%>
         </div>
       </div>
-      <%end%>
+      <% end %>
     <% end %>
   </div>
 
@@ -39,4 +30,10 @@
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
+</div>
+
+<div class="create justify-content-center">
+  <%= link_to new_cruise_path do%>
+  <p class="create btn btn-home btn-success"> <span>+&nbsp;</span><span id="span-color">add a new cruise</span></p>
+  <% end %>
 </div>

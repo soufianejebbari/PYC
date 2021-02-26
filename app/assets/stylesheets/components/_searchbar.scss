@@ -1,0 +1,84 @@
+.search-form-control {
+  position: relative;
+  margin: 0px 100px;
+  width: 500px;
+}
+
+.search-form-control .btn {
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  right: 8px;
+  background-color: $green;
+  border-radius: 3px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.search-form-control .form-control {
+  height: 3.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  border: 1px solid #E7E7E7;
+  border-radius: 3px;
+  opacity: 70%;
+}
+
+.search-form-control .form-control:focus {
+  border: 1px solid $dark;
+  outline: none !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.btn-flat:hover {
+  background-color: transparent;
+  border: $green 1px solid;
+}
+
+#filter-btn {
+  font-size: 15px;
+  right: 60px;
+  background-color: transparent;
+  border: $green 1px solid;
+}
+
+.filter {
+  padding-top: 2px;
+}
+
+.filter p {
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  letter-spacing: 0;
+  color: $light;
+}
+
+.filter i {
+  font-size: 14px;
+}
+
+p span {
+  display: inline-table;
+}
+
+.filter span:nth-child(even) {
+  overflow: hidden;
+  letter-spacing: -1em;
+  opacity: 0;
+  transition: all .3s ease-in-out;
+  transition: opacity .1s ease-in-out;
+}
+
+.filter:hover span:nth-child(even) {
+  letter-spacing: 0;
+  opacity: 1;
+  color: $dark;
+}
+
+.filter:hover i {
+  letter-spacing: 0;
+  color: $dark;
+  opacity: 0;
+  display: none;
+}
+
+
