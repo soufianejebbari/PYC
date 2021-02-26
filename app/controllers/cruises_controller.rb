@@ -37,6 +37,16 @@ class CruisesController < ApplicationController
     @cruise = Cruise.find(params[:id])
     @booking = Booking.new
     authorize @cruise
+    @locations = Location.where(cruise: @cruise)
+    @markers = [Location.find(@cruise.start_location_id), Location.find(@cruise.end_location_id)].map do |location|
+      {
+        lat: location.latitude,
+        lng: location.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { location: location.cruises }),
+        image_url: helpers.asset_url('marker_dark.png')
+      }
+    end
+    raise
   end
 
   def new
