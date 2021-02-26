@@ -1,6 +1,10 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1503634529935-e0e827964138?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2700&q=80);">
   <div class="container">
-    <p>Rent a board and enjoy surfing for a day :</p>
+    <h3>Book a cruise and live <br> a <div class="green-txt">sailing experience </div> with your friends and family</h3>
+
+    <p>PYC will be your faithful travel companion. <br> Look for the right companions so you don't have to travel alone, share the maintenance costs and explore the seas! </p>
+    <%= link_to "plan your trip", cruises_path, class: "btn btn-flat btn-success", id: "banner-btn" %>
+    <%= link_to "create a cruise", new_cruise_path, class: "btn btn-flat btn-success", id: "banner-btn" %>
   </div>
 </div>
 
@@ -30,10 +34,4 @@
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
-</div>
-
-<div class="create justify-content-center">
-  <%= link_to new_cruise_path do%>
-  <p class="create btn btn-home btn-success"> <span>+&nbsp;</span><span id="span-color">add a new cruise</span></p>
-  <% end %>
 </div>
