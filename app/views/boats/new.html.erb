@@ -1,7 +1,11 @@
-<%= simple_form_for(@boat) do |f| %>
+<div class="container modale">
+  <%= simple_form_for(@boat) do |f| %>
   <%= f.input :name %>
   <%= f.input :description %>
   <%= f.input :category %>
   <%= f.input :capacity %>
+  <%= f.file_field :photos, multiple: true%>
   <%= f.submit %>
-<% end %>
+  <% end %>
+</div>
+
