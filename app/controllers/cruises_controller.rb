@@ -46,7 +46,6 @@ class CruisesController < ApplicationController
         image_url: helpers.asset_url('marker_dark.png')
       }
     end
-    raise
   end
 
   def new
