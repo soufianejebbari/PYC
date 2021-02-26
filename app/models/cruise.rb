@@ -14,4 +14,10 @@ class Cruise < ApplicationRecord
   validates :start_location, presence: true
   validates :end_location, presence: true
   validates :difficulty, presence: true
+
+  def self.departure_locations
+    Cruise.all.map do |cruise|
+      Location.find(cruise.start_location_id)
+    end
+  end
 end

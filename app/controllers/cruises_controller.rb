@@ -22,8 +22,8 @@ class CruisesController < ApplicationController
     else
       @cruises = Cruise.all
     end
-    @locations = Location.all
-    @markers = @locations.geocoded.map do |location|
+    @locations = Cruise.departure_locations
+    @markers = @locations.map do |location|
       {
         lat: location.latitude,
         lng: location.longitude,
