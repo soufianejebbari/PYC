@@ -18,10 +18,9 @@ puts "done destroying"
 # user1 = User.create!(email: "user1@gmail.com", password: 123456)
 # user2 = User.create!(email: "user2@gmail.com", password: 123456)
 
-# first_name = Faker::Name.first_name
-  # last_name = Faker::Name.last_name
-
   2.times do
+  first_name = Faker::Name.first_name
+  last_name = Faker::Name.last_name
   email = Faker::Internet.email
   password = "123456"
 
@@ -153,8 +152,8 @@ cruises = [{
   name: "Sicilia, eterna primavera!",
   description: Faker::Lorem.paragraph,
   difficulty: rand(1..5),
-  start_location: Location.all.first,
-  end_location: Location.all.first,
+  start_location: Location.all.sample,
+  end_location: Location.all.sample,
   price: rand(90..300),
   start_date: Date.today,
   end_date: Date.today+2
@@ -164,8 +163,8 @@ cruises = [{
   name: "C'est Marseille bb",
   description: Faker::Lorem.paragraph,
   difficulty: rand(1..5),
-  start_location: Location.all.first,
-  end_location: Location.all.first,
+  start_location: Location.all.sample,
+  end_location: Location.all.sample,
   price: rand(90..300),
   start_date: Date.today,
   end_date: Date.today+2
@@ -174,8 +173,8 @@ cruises = [{
   name: "Nice trip all around Corsica",
   description: Faker::Lorem.paragraph,
   difficulty: rand(1..5),
-  start_location: Location.all.first,
-  end_location: Location.all.first,
+  start_location: Location.all.sample,
+  end_location: Location.all.sample,
   price: rand(90..300),
   start_date: Date.today,
   end_date: Date.today+1
@@ -185,8 +184,8 @@ cruises = [{
   name: "Sailing to Palma, le Corazon des baléares",
   description: Faker::Lorem.paragraph,
   difficulty: rand(1..5),
-  start_location: Location.all.first,
-  end_location: Location.all.first,
+  start_location: Location.all.sample,
+  end_location: Location.all.sample,
   price: rand(90..300),
   start_date: Date.today,
   end_date: Date.today+3
@@ -196,8 +195,8 @@ cruises = [{
   name: "Ciao Sardegna",
   description: Faker::Lorem.paragraph,
   difficulty: rand(1..5),
-  start_location: Location.all.first,
-  end_location: Location.all.first,
+  start_location: Location.all.sample,
+  end_location: Location.all.sample,
   price: rand(90..300),
   start_date: Date.today,
   end_date: Date.today+1
@@ -206,8 +205,8 @@ cruises = [{
   name: "Ibiza le berceau de la Fiesta",
   description: Faker::Lorem.paragraph,
   difficulty: rand(1..5),
-  start_location: Location.all.first,
-  end_location: Location.all.first,
+  start_location: Location.all.sample,
+  end_location: Location.all.sample,
   price: rand(90..300),
   start_date: Date.today,
   end_date: Date.today+3

@@ -116,3 +116,8 @@ label {
   margin-top: 30px;
   background-color: transparent;
 }
+
+#before-avatar:hover::before {
+  content: "Hey, I'm your captain !";
+  font-size: 10px;
+}
