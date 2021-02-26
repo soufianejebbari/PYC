@@ -218,7 +218,7 @@ cruises = [{
 cruises.each do |cruise|
   cruisy = Cruise.new(cruise)
   p cruisy
-  cruisy.boat = Boat.first
+  cruisy.boat = Boat.all
   cruisy.valid?
   cruisy.save!
   # boaty.photos.attach(boaty.photo)
