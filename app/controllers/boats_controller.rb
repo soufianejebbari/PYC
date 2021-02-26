@@ -30,7 +30,6 @@ class BoatsController < ApplicationController
   end
 
   def create
-    raise
     @boat = Boat.new(boat_params)
     @boat.user = current_user
     if @boat.save
