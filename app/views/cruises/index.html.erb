@@ -1,26 +1,39 @@
-<div id="map"
-     style="width: 100%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://source.unsplash.com/GMatv72vtEI/1600x900);">
+  <div class="container">
+    <p>Rent a board and enjoy surfing for a day :</p>
+  </div>
 </div>
 
-<!-- [...] -->
-<%= form_tag cruises_path, method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Find a cruise"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
-<!-- the list of cruises -->
+<h2 class="container my-3 px-4"> Offers </h2>
 
-<% @cruises.each do |cruise| %>
-  <%= link_to "This is a cruise card", cruise_path(cruise) %>
-<% end %>
+<div class="container d-flex">
+  <div class="cards col-6">
+    <% @cruises.each do |cruise| %>
+    <%= link_to cruise_path(cruise) do %>
+      <div class="card-trip">
+        <%= image_tag "home.jpeg", alt: "CRUISE_img" %>
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= cruise.name%></h2>
+            <p> <%= cruise.boat.category %> trip in <%= cruise.start_location_id %></p>
+          </div>
+          <div class="card-trip-pricing"><%= cruise.price %>&nbsp;$</div>
+           <%= image_tag "https://thispersondoesnotexist.com/image", class: "card-trip-user avatar-bordered"%>
+        </div>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
 
-<%= link_to "Avatar", user_path(@current_user) %>
+  <div class="col-6" id="map"
+     style="width: 100%; height: 610px; border-radius: 5px; position: sticky; top: 80px"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+</div>
 
-<% if policy(Cruise).create? %>
-  <%= link_to "New Cruise", new_cruise_path %>
-<% end %>
+<div class="create justify-content-center">
+  <%= link_to new_cruise_path do%>
+  <p class="create btn btn-home btn-success"> <span>+&nbsp;</span><span id="span-color">add a new cruise</span></p>
+  <% end %>
+</div>
