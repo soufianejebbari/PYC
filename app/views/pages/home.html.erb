@@ -1,6 +1,6 @@
 <div class="home-wrapper">
   <% if user_signed_in? %>
-    <p class="home">Hello <%= current_user.email %>, <br> welcome back to</p>
+    <p class="home">Hello <%= current_user.first_name %>, <br> welcome back to</p>
   <% else %>
     <p class="home">Welcome to</p>
   <% end %>
