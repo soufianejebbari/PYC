@@ -30,7 +30,7 @@ const initMapbox = () => {
       'source': 'route',
       'layout': {
       'line-join': 'round',
-      'line-cap': 'round'
+      'line-cap': 'butt'
       },
       'paint': {
       'line-color': '#90caa0',
