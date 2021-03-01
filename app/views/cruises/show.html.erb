@@ -49,9 +49,35 @@
         Are you ready to board <br> with <%= @cruise.boat.user.email %> <br>from <div class="green-txt"><%= @cruise.start_date %></div> to <div class="green-txt"><%= @cruise.end_date %></div><br>for <%= @cruise.price %> €
         <br>Availibility : <%= @booking_capacity %>
         <% unless @booking_capacity == 0 %>
-          <%= simple_form_for [@cruise, @booking] do |f| %>
-            <%= f.button :button, "Board now", class: "btn btn-flat btn-book btn-success" %>
-          <% end %>
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#bookingFormModal">
+            Launch Booking Modal
+          </button>
         <% end %>
       </div>
     </div>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="bookingFormModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <%= simple_form_for [@cruise, @booking] do |f| %>
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Booking Modal</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <%= f.input :seats  %>
+        </div>
+        <div class="modal-footer">
+          <%= f.button :button, "Board now", class: "btn btn-flat btn-book btn-success" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
