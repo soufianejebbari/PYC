@@ -37,7 +37,7 @@
            data-markers="<%= @markers.to_json %>"
            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
            data-route = "<%= @cruise.stops.map{ |stop| [stop.location.longitude, stop.location.latitude] } %>"
-        </div>
+        ></div>
 
         <%= link_to "< Back", cruises_path, class: "btn btn-flat btn-back btn-success" %>
       </div>
@@ -46,9 +46,12 @@
     <div class="card-book">
       <div class="form-wrapper">
         <h3>Hey Sailor ! </h3>
-        Are you ready to board <br> with <%= @cruise.boat.user.email %> <br>from <div class="green-txt"><%= @cruise.start_date %></div> to <div class="green-txt"><%= @cruise.end_date %></div><br>for <%= @cruise.price %> $ ?
-        <%= simple_form_for [@cruise, @booking] do |f| %>
-          <%= f.button :button, "Board now", class: "btn btn-flat btn-book btn-success" %>
+        Are you ready to board <br> with <%= @cruise.boat.user.email %> <br>from <div class="green-txt"><%= @cruise.start_date %></div> to <div class="green-txt"><%= @cruise.end_date %></div><br>for <%= @cruise.price %> €
+        <br>Availibility : <%= @booking_capacity %>
+        <% unless @booking_capacity == 0 %>
+          <%= simple_form_for [@cruise, @booking] do |f| %>
+            <%= f.button :button, "Board now", class: "btn btn-flat btn-book btn-success" %>
+          <% end %>
         <% end %>
       </div>
     </div>
