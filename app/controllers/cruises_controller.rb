@@ -3,12 +3,12 @@ class CruisesController < ApplicationController
     # @cruise = Cruise.all
     if params[:search]
       if params[:search][:query].present?
-        @cruises = policy_scope(Cruise).near(params[:search][:query], 5)
+        @locations = policy_scope(Location).near(params[:search][:query], 5)
       else
-        @cruises = policy_scope(Cruise)
+        @locations = policy_scope(Location)
       end
     else
-      @cruises = policy_scope(Cruise)
+      @locations = policy_scope(Location)
     end
 
     if params[:query].present?
@@ -16,13 +16,20 @@ class CruisesController < ApplicationController
         cruises.name  @@ :query \
         OR boats.name @@ :query \
         OR boats.category @@ :query \
-        OR locations.start_location @@ :query \
-        OR locations.end_location @@ :query \
+        OR locations.name @@ :query \
       "
-      @cruises = Cruise.joins(:boat).where(sql_query, query: "%#{params[:query]}%")
+      @cruises = Cruise.joins(:boat).joins(:location).where(sql_query, query: "%#{params[:query]}%")
     else
       @cruises = Cruise.all
     end
+
+    # @location = location.near(params[:search])
+    # @cruises = Cruise.where(start_location = location)
+    # @cruises = locations.map { |location| Cruise.where(start_location: location) }.flatten
+    # find locatiojns closde to search -> locations = Location.near(search)
+    # for each location find cruises that starts here -> cruises = Cruise.where(start_location = location)
+    # cruises = locations.map{|location| Cruise.where(start_location: location)}.flatten
+
     @locations = Cruise.departure_locations
     @markers = @locations.map do |location|
       {
