@@ -3,6 +3,8 @@ class Location < ApplicationRecord
 
   geocoded_by :name
   after_validation :geocode, if: :will_save_change_to_name?
+
+  scope :by_random, -> {reorder(Arel.sql("RANDOM()")) }
 end
 
 
