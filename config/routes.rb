@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'reviews/index'
+  get 'reviews/new'
+  get 'reviews/create'
   root to: 'pages#home'
 
   devise_for :users,
@@ -12,6 +15,7 @@ Rails.application.routes.draw do
 
   resources :cruises do
     resources :bookings, only: [:index, :show, :new, :create]
+    resources :reviews, only: [:index, :new, :create ]
   end
 
   resources :boats, only:  [:new, :create, :update, :edit]
