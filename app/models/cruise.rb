@@ -1,6 +1,7 @@
 class Cruise < ApplicationRecord
   belongs_to :boat
   has_many :bookings, dependent: :destroy
+  has_many :stops
 
   has_many :reviews, dependent: :destroy
   belongs_to :start_location, class_name: "Location", foreign_key: "start_location_id"
@@ -17,7 +18,15 @@ class Cruise < ApplicationRecord
 
   def self.departure_locations
     Cruise.all.map do |cruise|
-      Location.find(cruise.start_location_id)
+      cruise.start_location
     end
+  end
+
+  def start_location
+    self.stops.find_by(start_location: true).location
+  end
+
+  def end_location
+    self.stops.find_by(end_location: true).location
   end
 end
