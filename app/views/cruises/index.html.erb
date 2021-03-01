@@ -8,28 +8,23 @@
   </div>
 </div>
 
-<h2 class="container my-3 px-4"> Fav destinations </h2>
+<h2 class="container my-3 px-4 "> Fav destinations </h2>
 <p class="px-4 col-6"> La quand meme je vais mettre du texte pour expliquer un peu pck c'est
   vraiment miskine d'avoir que dalle dans cette section de la page... non ?</p>
 
 <div class="container">
-  <div class="cards col-6">
-    <% @cruises.each do |cruise| %>
-    <%= link_to cruise_path(cruise) do %>
-      <div class="card-trip">
-        <%= image_tag "home.jpeg", alt: "CRUISE_img" %>
-        <div class="card-trip-infos">
-          <div>
-            <h2><%= cruise.name%></h2>
-            <p> <%= cruise.boat.category %> trip in <%= cruise.start_location_id %></p>
-          </div>
-          <div class="card-trip-pricing"><%= cruise.price %>&nbsp;$</div>
-           <%= image_tag "https://thispersondoesnotexist.com/image", class: "card-trip-user avatar-bordered"%>
-        </div>
-      </div>
-      <% end %>
-    <% end %>
+  <div class="cards-fav">
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1582449632051-e699411ff297?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1334&q=80)">
+      Corsica
+    </div>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1560611840-1df6c351e40e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80)">
+      Cotes d'Armor
+    </div>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1601077779632-495330197b7f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80)">
+      Caribbean Sea
+    </div>
   </div>
+</div>
 
 <h2 class="container my-3 px-4" id="offers"> Offers </h2>
 <p class="px-4 col-6"> La quand meme je vais mettre du texte pour expliquer un peu pck c'est
