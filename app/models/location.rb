@@ -1,10 +1,11 @@
 class Location < ApplicationRecord
   has_many :stops
+  has_many :cruises, through: :stops
 
   geocoded_by :name
   after_validation :geocode, if: :will_save_change_to_name?
 
-  scope :by_random, -> {reorder(Arel.sql("RANDOM()")) }
+
 end
 
 
