@@ -33,8 +33,8 @@ const initMapbox = () => {
       'line-cap': 'round'
       },
       'paint': {
-      'line-color': '#888',
-      'line-width': 8
+      'line-color': '#90caa0',
+      'line-width': 2
       }
       });
       });
