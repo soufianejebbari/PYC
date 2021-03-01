@@ -1,4 +1,4 @@
-<div style="<%= 'background: transparent' if params[:action] == 'home'%>" class="navbar navbar-expand-sm navbar-lewagon">
+<div style="<%= 'background: transparent; position: absolute' if params[:action] == 'home'%>" class="navbar navbar-expand-sm navbar-lewagon">
   <div style="<%= 'opacity: 0' if params[:action] == 'home' %>">
     <%= link_to root_path do %>
       <%= image_tag "logo_black.png", class: "logo-navbar"%>
