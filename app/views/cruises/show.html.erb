@@ -22,9 +22,9 @@
 
         <div class="tag d-flex align-items-center justify-content-between">
           <h1><%= @cruise.name %></h1>
-          <%= link_to user_path(@cruise.boat.user), id: "before-avatar" do %>
-            <%= image_tag "https://thispersondoesnotexist.com/image", class: "card-trip-user avatar-bordered"%>
-          <% end %>
+          <div id="before-avatar">
+            <%= image_tag "https://thispersondoesnotexist.com/image", class: "card-trip-user avatar-bordered" , id: "before-avatar"%>
+          </div>
         </div>
 
         <h3>Board the <%= @cruise.boat.name %></h3>
@@ -46,11 +46,11 @@
     <div class="card-book">
       <div class="form-wrapper">
         <h3>Hey Sailor ! </h3>
-        Are you ready to board <br> with <%= @cruise.boat.user.email %> <br>from <div class="green-txt"><%= @cruise.start_date %></div> to <div class="green-txt"><%= @cruise.end_date %></div><br>for <%= @cruise.price %> €
+        Are you ready to board <br> with <%= @cruise.boat.user.first_name %> <br>from <div class="green-txt"><%= @cruise.start_date %></div> to <div class="green-txt"><%= @cruise.end_date %></div><br>for <%= @cruise.price %> €
         <br>Availibility : <%= @booking_capacity %>
         <% unless @booking_capacity == 0 %>
           <!-- Button trigger modal -->
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#bookingFormModal">
+          <button type="button" class="btn btn-book btn-success" data-toggle="modal" data-target="#bookingFormModal">
             Launch Booking Modal
           </button>
         <% end %>
