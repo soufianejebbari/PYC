@@ -39,7 +39,7 @@
         <div class="card-trip-infos">
           <div>
             <h2><%= cruise.name%></h2>
-            <p> <%= cruise.boat.category %> trip in <%= cruise.start_location_id %></p>
+            <p> <%= cruise.boat.category %> trip in <%= cruise.start_location.name %></p>
           </div>
           <div class="card-trip-pricing"><%= cruise.price %>&nbsp;$</div>
            <%= image_tag "https://thispersondoesnotexist.com/image", class: "card-trip-user avatar-bordered"%>
