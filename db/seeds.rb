@@ -152,8 +152,6 @@ cruises = [{
   name: "Sicilia, eterna primavera!",
   description: Faker::Lorem.paragraph,
   difficulty: rand(1..5),
-  start_location: Location.all.sample,
-  end_location: Location.all.sample,
   price: rand(90..300),
   start_date: Date.today,
   end_date: Date.today+2
@@ -163,8 +161,6 @@ cruises = [{
   name: "C'est Marseille bb",
   description: Faker::Lorem.paragraph,
   difficulty: rand(1..5),
-  start_location: Location.all.sample,
-  end_location: Location.all.sample,
   price: rand(90..300),
   start_date: Date.today,
   end_date: Date.today+2
@@ -173,8 +169,6 @@ cruises = [{
   name: "Nice trip all around Corsica",
   description: Faker::Lorem.paragraph,
   difficulty: rand(1..5),
-  start_location: Location.all.sample,
-  end_location: Location.all.sample,
   price: rand(90..300),
   start_date: Date.today,
   end_date: Date.today+1
@@ -184,8 +178,6 @@ cruises = [{
   name: "Sailing to Palma, le Corazon des baléares",
   description: Faker::Lorem.paragraph,
   difficulty: rand(1..5),
-  start_location: Location.all.sample,
-  end_location: Location.all.sample,
   price: rand(90..300),
   start_date: Date.today,
   end_date: Date.today+3
@@ -195,8 +187,6 @@ cruises = [{
   name: "Ciao Sardegna",
   description: Faker::Lorem.paragraph,
   difficulty: rand(1..5),
-  start_location: Location.all.sample,
-  end_location: Location.all.sample,
   price: rand(90..300),
   start_date: Date.today,
   end_date: Date.today+1
@@ -205,8 +195,6 @@ cruises = [{
   name: "Ibiza le berceau de la Fiesta",
   description: Faker::Lorem.paragraph,
   difficulty: rand(1..5),
-  start_location: Location.all.sample,
-  end_location: Location.all.sample,
   price: rand(90..300),
   start_date: Date.today,
   end_date: Date.today+3
@@ -217,6 +205,11 @@ cruises = [{
 cruises.each do |cruise|
   cruisy = Cruise.new(cruise)
   p cruisy
+  cruisy.stops.new(location: Location.sample, start_location: true)
+  (0..3).to_a.sample.times do
+    cruisy.stops.new(location: Location.sample)
+  end
+  cruisy.stops.new(location: Location.sample, end_location: true)
   cruisy.boat = Boat.first
   cruisy.valid?
   cruisy.save!

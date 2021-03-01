@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_26_135715) do
+ActiveRecord::Schema.define(version: 2021_03_01_102737) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,16 +62,12 @@ ActiveRecord::Schema.define(version: 2021_02_26_135715) do
     t.date "end_date"
     t.integer "price"
     t.bigint "boat_id", null: false
-    t.bigint "start_location_id"
-    t.bigint "end_location_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
     t.string "description"
     t.integer "difficulty"
     t.index ["boat_id"], name: "index_cruises_on_boat_id"
-    t.index ["end_location_id"], name: "index_cruises_on_end_location_id"
-    t.index ["start_location_id"], name: "index_cruises_on_start_location_id"
   end
 
   create_table "locations", force: :cascade do |t|
@@ -112,6 +108,18 @@ ActiveRecord::Schema.define(version: 2021_02_26_135715) do
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
+  create_table "stops", force: :cascade do |t|
+    t.integer "position"
+    t.bigint "location_id", null: false
+    t.bigint "cruise_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.boolean "start_location"
+    t.boolean "end_location"
+    t.index ["cruise_id"], name: "index_stops_on_cruise_id"
+    t.index ["location_id"], name: "index_stops_on_location_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -130,10 +138,10 @@ ActiveRecord::Schema.define(version: 2021_02_26_135715) do
   add_foreign_key "bookings", "cruises"
   add_foreign_key "bookings", "users"
   add_foreign_key "cruises", "boats"
-  add_foreign_key "cruises", "locations", column: "end_location_id"
-  add_foreign_key "cruises", "locations", column: "start_location_id"
   add_foreign_key "messages", "bookings"
   add_foreign_key "messages", "users"
   add_foreign_key "reviews", "cruises"
   add_foreign_key "reviews", "users"
+  add_foreign_key "stops", "cruises"
+  add_foreign_key "stops", "locations"
 end
