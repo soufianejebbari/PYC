@@ -205,11 +205,11 @@ cruises = [{
 cruises.each do |cruise|
   cruisy = Cruise.new(cruise)
   p cruisy
-  cruisy.stops.new(location: Location.sample, start_location: true)
+  cruisy.stops.new(location: Location.by_random.first, start_location: true)
   (0..3).to_a.sample.times do
-    cruisy.stops.new(location: Location.sample)
+    cruisy.stops.new(location: Location.by_random.first)
   end
-  cruisy.stops.new(location: Location.sample, end_location: true)
+  cruisy.stops.new(location: Location.by_random.first, end_location: true)
   cruisy.boat = Boat.first
   cruisy.valid?
   cruisy.save!

@@ -12,8 +12,6 @@ class Cruise < ApplicationRecord
   validates :start_date, presence: true
   validates :end_date, presence: true
   validates :price, presence: true
-  validates :start_location, presence: true
-  validates :end_location, presence: true
   validates :difficulty, presence: true
 
   def self.departure_locations
