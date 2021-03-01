@@ -38,7 +38,7 @@ class CruisesController < ApplicationController
     @booking = Booking.new
     authorize @cruise
     @locations = Location.where(cruise: @cruise)
-    @markers = [Location.find(@cruise.start_location_id), Location.find(@cruise.end_location_id)].map do |location|
+    @markers = [@cruise.start_location, @cruise.end_location].map do |location|
       {
         lat: location.latitude,
         lng: location.longitude,
@@ -82,6 +82,6 @@ class CruisesController < ApplicationController
   private
 
   def cruise_params
-    params.require(:cruise).permit(:name, :description, :start_date, :end_date, :price, :start_location_id, :end_location_id, :difficulty, :boat_id)
+    params.require(:cruise).permit(:name, :description, :start_date, :end_date, :price, :start_location, :end_location, :difficulty, :boat_id)
   end
 end
