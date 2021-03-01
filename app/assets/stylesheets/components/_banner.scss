@@ -1,22 +1,56 @@
 .banner {
-  background-size: cover;
-  background-position: center;
-  padding: 310px 0;
+    background-size: cover;
+    background-position: center;
+    padding: 140px 460px;
+    max-width: 98vw;
+    margin: 0 auto;
+}
+
+.home-banner {
+    background-size: cover;
+    background-position: center;
+    padding: 280px 120px 158px 720px;
+    max-width: 98vw;
+    margin: 14px auto;
+    color: white;
+    background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),
+                  asset-url("home_bg.jpg");
 }
 
 .banner h1 {
-  text-align: center;
   margin: 0;
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 32px;
+  font-size: 30px;
+  font-weight: 300;
+}
+
+.banner h3 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 26px;
   font-weight: 300;
 }
 
 .banner p {
-  text-align: center;
-  font-size: 20px;
+  margin-top: 10px;
+  font-size: 15px;
   font-weight: 200;
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.green-txt {
+  color: $green;
+  display: contents;
+}
+
+#banner-btn {
+  margin-top: 20px;
+  width: 100%;
+}
+
+#banner-btn:hover {
+  color: $light;
 }

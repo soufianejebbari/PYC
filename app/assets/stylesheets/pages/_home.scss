@@ -17,8 +17,8 @@ p.home {
 
 .logo-full {
   width: 500px;
-  position: fixed;
-  left: 30%;
+  position: absolute;
+  left: 7%;
   top: 17%;
   filter: drop-shadow(0 2px 6px rgba(0,0,0,0.08));
   transition: transform 50s ease-out;
@@ -116,7 +116,7 @@ p span {
   color: $dark;
 }
 
-.create:hover i {
+.create:hover #span-color {
   letter-spacing: 0;
   color: $dark;
   opacity: 0;

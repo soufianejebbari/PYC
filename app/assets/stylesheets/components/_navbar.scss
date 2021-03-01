@@ -35,8 +35,8 @@
   background: $light;
   justify-content: space-between;
   z-index: 1000;
-      position: sticky;
-    top: 0;
+  position: sticky;
+  top: 0;
   width: 100%;
 }
 
@@ -68,9 +68,9 @@
 }
 
 .navbar-nav .dropdown-menu {
-    position: absolute;
-        left: -767px;
-    top: -12px;
+  position: absolute;
+  left: -767px;
+  top: -12px;
 }
 
 // .navbar-nav .dropdown-menu {

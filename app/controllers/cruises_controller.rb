@@ -23,8 +23,8 @@ class CruisesController < ApplicationController
     else
       @cruises = Cruise.all
     end
-    @locations = Location.all
-    @markers = @locations.geocoded.map do |location|
+    @locations = Cruise.departure_locations
+    @markers = @locations.map do |location|
       {
         lat: location.latitude,
         lng: location.longitude,
@@ -38,6 +38,29 @@ class CruisesController < ApplicationController
     @cruise = Cruise.find(params[:id])
     @booking = Booking.new
     authorize @cruise
+    @locations = Location.where(cruise: @cruise)
+    markers_bg = {
+      start_location: 'marker_dark.png',
+      stop: 'logo_light.png',
+      end_location: 'marker_light.png'
+    }
+    @markers = @cruise.stops.map do |stop|
+      bg = ''
+      if stop.start_location
+        bg = markers_bg[:start_location]
+      elsif stop.end_location
+        bg = markers_bg[:end_location]
+      else
+        bg = markers_bg[:stop]
+      end
+      {
+
+        lat: stop.location.latitude,
+        lng: stop.location.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { location: stop.location.cruises }),
+        image_url: helpers.asset_url(bg)
+      }
+    end
   end
 
   def new
@@ -74,6 +97,6 @@ class CruisesController < ApplicationController
   private
 
   def cruise_params
-    params.require(:cruise).permit(:name, :description, :start_date, :end_date, :price, :start_location_id, :end_location_id, :difficulty, :boat_id)
+    params.require(:cruise).permit(:name, :description, :start_date, :end_date, :price, :start_location, :end_location, :difficulty, :boat_id)
   end
 end

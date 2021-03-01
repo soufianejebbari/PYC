@@ -8,6 +8,7 @@ puts "Destroying all instances"
 Cruise.destroy_all
 Boat.destroy_all
 Booking.destroy_all
+Location.destroy_all
 User.destroy_all
 # Review.destroy_all
 # Message.destroy_all
@@ -17,10 +18,9 @@ puts "done destroying"
 # user1 = User.create!(email: "user1@gmail.com", password: 123456)
 # user2 = User.create!(email: "user2@gmail.com", password: 123456)
 
-# first_name = Faker::Name.first_name
-  # last_name = Faker::Name.last_name
-
   2.times do
+  first_name = Faker::Name.first_name
+  last_name = Faker::Name.last_name
   email = Faker::Internet.email
   password = "123456"
 
@@ -120,44 +120,96 @@ boats.each do |boat|
   # boaty.photos.attach(boaty.photo)
 end
 
+ajaccio = Location.new(name: "Ajaccio")
+ajaccio.save!
+
 porto_vecchio = Location.new(name: "Porto Vecchio")
 porto_vecchio.save!
 
-bonifacio = Location.new(name: "Bonifacio")
-bonifacio.save!
+ibiza = Location.new(name: "Ibiza")
+ibiza.save!
 
-locations = [{
-    name: "Porto Vecchio",
-    latitude: 41.591369,
-    longitude: 9.278311
-  },
-  { name: "Bonifacio",
-    latitude: 41.387174,
-    longitude: 9.159269
-  }
-]
-locations.each do |location|
-  locationy = Location.new(location)
-  p locationy
-  locationy.valid?
-  locationy.save!
-  # boaty.photos.attach(boaty.photo)
-end
+la_maddalena = Location.new(name: "La Maddalena")
+la_maddalena.save!
+
+cagliari = Location.new(name: "Cagliari")
+cagliari.save!
+
+palma = Location.new(name: "Palma")
+palma.save!
+
+palerme = Location.new(name: "Palerme")
+palerme.save!
+
+marseille = Location.new(name: "Marseille")
+marseille.save!
+
+
+
 
 cruises = [{
+
+  name: "Sicilia, eterna primavera!",
+  description: Faker::Lorem.paragraph,
+  difficulty: rand(1..5),
+  price: rand(90..300),
+  start_date: Date.today,
+  end_date: Date.today+2
+},
+
+{
+  name: "C'est Marseille bb",
+  description: Faker::Lorem.paragraph,
+  difficulty: rand(1..5),
+  price: rand(90..300),
+  start_date: Date.today,
+  end_date: Date.today+2
+},
+{
   name: "Nice trip all around Corsica",
   description: Faker::Lorem.paragraph,
-  difficulty: 3,
-  start_location: Location.all.first,
-  end_location: Location.all.first,
+  difficulty: rand(1..5),
   price: rand(90..300),
   start_date: Date.today,
   end_date: Date.today+1
-}]
+},
+
+{
+  name: "Sailing to Palma, le Corazon des baléares",
+  description: Faker::Lorem.paragraph,
+  difficulty: rand(1..5),
+  price: rand(90..300),
+  start_date: Date.today,
+  end_date: Date.today+3
+},
+
+{
+  name: "Ciao Sardegna",
+  description: Faker::Lorem.paragraph,
+  difficulty: rand(1..5),
+  price: rand(90..300),
+  start_date: Date.today,
+  end_date: Date.today+1
+},
+{
+  name: "Ibiza le berceau de la Fiesta",
+  description: Faker::Lorem.paragraph,
+  difficulty: rand(1..5),
+  price: rand(90..300),
+  start_date: Date.today,
+  end_date: Date.today+3
+}
+]
+
 
 cruises.each do |cruise|
   cruisy = Cruise.new(cruise)
   p cruisy
+  cruisy.stops.new(location: Location.by_random.first, start_location: true)
+  (0..3).to_a.sample.times do
+    cruisy.stops.new(location: Location.by_random.first)
+  end
+  cruisy.stops.new(location: Location.by_random.first, end_location: true)
   cruisy.boat = Boat.first
   cruisy.valid?
   cruisy.save!
@@ -178,6 +230,7 @@ end
 
 puts "#{User.all.length} users created"
 puts "#{Boat.all.length} boats created"
+puts "#{Cruise.all.length} cruises created"
 
 
 # board image to do after cloudinary setup

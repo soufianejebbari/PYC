@@ -3,15 +3,41 @@ import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 
 const initMapbox = () => {
   const mapElement = document.getElementById('map');
+  console.log(mapElement.dataset.route)
 
   if (mapElement) { // only build a map if there's a div#map to inject into
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     const map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/mapbox/streets-v10'
+      style: 'mapbox://styles/agathesf/cklqeskhj67pl17qw5q3hibxu'
     });
-    map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
-      mapboxgl: mapboxgl }));
+
+    map.on('load', function () {
+      map.addSource('route', {
+      'type': 'geojson',
+      'data': {
+      'type': 'Feature',
+      'properties': {},
+      'geometry': {
+      'type': 'LineString',
+      'coordinates': JSON.parse(mapElement.dataset.route)
+      }
+      }
+      });
+      map.addLayer({
+      'id': 'route',
+      'type': 'line',
+      'source': 'route',
+      'layout': {
+      'line-join': 'round',
+      'line-cap': 'butt'
+      },
+      'paint': {
+      'line-color': '#90caa0',
+      'line-width': 2
+      }
+      });
+      });
 
     const markers = JSON.parse(mapElement.dataset.markers);
     // if (markers.length > 1) {
