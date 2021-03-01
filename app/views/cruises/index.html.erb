@@ -3,12 +3,37 @@
     <h3>Book a cruise and live <br> a <div class="green-txt">sailing experience </div> with your friends and family</h3>
 
     <p>PYC will be your faithful travel companion. <br> Look for the right companions so you don't have to travel alone, share the maintenance costs and explore the seas! </p>
-    <%= link_to "plan your trip", cruises_path, class: "btn btn-flat btn-success", id: "banner-btn" %>
+    <%= link_to "plan your trip", cruises_path(:anchor => "offers"), class: "btn btn-flat btn-success", id: "banner-btn" %>
     <%= link_to "create a cruise", new_cruise_path, class: "btn btn-flat btn-success", id: "banner-btn" %>
   </div>
 </div>
 
-<h2 class="container my-3 px-4"> Offers </h2>
+<h2 class="container my-3 px-4"> Fav destinations </h2>
+<p class="px-4 col-6"> La quand meme je vais mettre du texte pour expliquer un peu pck c'est
+  vraiment miskine d'avoir que dalle dans cette section de la page... non ?</p>
+
+<div class="container">
+  <div class="cards col-6">
+    <% @cruises.each do |cruise| %>
+    <%= link_to cruise_path(cruise) do %>
+      <div class="card-trip">
+        <%= image_tag "home.jpeg", alt: "CRUISE_img" %>
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= cruise.name%></h2>
+            <p> <%= cruise.boat.category %> trip in <%= cruise.start_location_id %></p>
+          </div>
+          <div class="card-trip-pricing"><%= cruise.price %>&nbsp;$</div>
+           <%= image_tag "https://thispersondoesnotexist.com/image", class: "card-trip-user avatar-bordered"%>
+        </div>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+
+<h2 class="container my-3 px-4" id="offers"> Offers </h2>
+<p class="px-4 col-6"> La quand meme je vais mettre du texte pour expliquer un peu pck c'est
+  vraiment miskine d'avoir que dalle dans cette section de la page... non ?</p>
 
 <div class="container d-flex">
   <div class="cards col-6">
@@ -30,8 +55,13 @@
   </div>
 
   <div class="col-6" id="map"
-     style="width: 100%; height: 610px; border-radius: 5px; position: sticky; top: 80px"
+     style="width: 100%; height: 610px; border-radius: 5px; position: sticky; top: 130px"
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 </div>
+
+<h2 class="container my-3 px-4"> Create your cruise </h2>
+<p class="px-4 col-6"> La quand meme je vais mettre du texte pour expliquer un peu pck c'est
+  vraiment miskine d'avoir que dalle dans cette section de la page... non ?</p>
+
