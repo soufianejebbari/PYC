@@ -60,6 +60,11 @@ class CruisesController < ApplicationController
         image_url: helpers.asset_url(bg)
       }
     end
+    @seat_booked = 0
+    Booking.where(cruise: @cruise).each do |booking|
+     @seat_booked += booking.seats
+    end
+    @booking_capacity = @cruise.boat.capacity - @seat_booked
   end
 
   def new
