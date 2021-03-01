@@ -9,19 +9,12 @@
 .home-banner {
     background-size: cover;
     background-position: center;
-    padding: 280px 120px 130px 720px;
+    padding: 280px 120px 158px 720px;
     max-width: 98vw;
     margin: 14px auto;
     color: white;
     background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),
-                  url("home_bg.png");
-}
-
-.home-banner-top {
-    background-size: cover;
-    background-position: center;
-    background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),
-                  url("home_top.png");
+                  asset-url("home_bg.jpg");
 }
 
 .banner h1 {
