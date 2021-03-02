@@ -24,16 +24,36 @@
         </div>
 
         <div class="tag d-flex align-items-center justify-content-between">
-          <h1><%= @cruise.name %></h1>
+          <h1 id="show-title-big"><%= @cruise.name %></h1>
           <div id="before-avatar">
             <%= cl_image_tag @cruise.boat.user.photo.key, class: "card-trip-user avatar-bordered", id: "before-avatar"%>
           </div>
         </div>
 
-        <h3>Board the <%= @cruise.boat.name %></h3>
-
+          <p class="border-right mr-2" id="top-info"> <i class="fas fa-map-marker-alt"></i> <%= @cruise.start_location.name %> </p>
+          <p class="border-right mr-2" id="top-info"> <i class="fas fa-user"></i> <%= @cruise.boat.capacity %> </p>
+          <p id="top-info">
+            <i class="fas fa-bolt"></i> <%= @cruise.difficulty %>
+            <% if @cruise.difficulty == 1 %>
+            <div style="font-style: italic; opacity: .7; font-size: 10px; display: inline; vertical-align: middle">(Novice)</div>
+            <% elsif @cruise.difficulty == 2 %>
+            <div style="font-style: italic; opacity: .7; font-size: 10px; display: inline; vertical-align: middle">(Easy)</div>
+            <% elsif @cruise.difficulty == 3 %>
+            <div style="font-style: italic; opacity: .7; font-size: 10px; display: inline; vertical-align: middle">(Intermediate)</div>
+            <% elsif @cruise.difficulty == 4 %>
+            <div style="font-style: italic; opacity: .7; font-size: 10px; display: inline; vertical-align: middle">(Hard)</div>
+            <% else %>
+            <div style="font-style: italic; opacity: .7; font-size: 10px; display: inline; vertical-align: middle">(Expert)</div>
+            <% end %>
+          </p>
 
         <p><%= @cruise.description %></p>
+
+        <h3 class="py-3 border-top" id="show-title">About the boat : <%= @cruise.boat.name %></h3>
+
+        <h3 class="py-3 border-top" id="show-title">About the captain : <%= @cruise.boat.user.first_name %></h3>
+
+        <h3 class="py-3 border-top" id="show-title">Reviews</h3>
 
         <div class="col-12" id="map"
            style="width: 100%; height: 610px; border-radius: 5px"
