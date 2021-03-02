@@ -18,13 +18,12 @@ puts "done destroying"
 # user1 = User.create!(email: "user1@gmail.com", password: 123456)
 # user2 = User.create!(email: "user2@gmail.com", password: 123456)
 
-  2.times do
+5.times do
   first_name = Faker::Name.first_name
-  last_name = Faker::Name.last_name
   email = Faker::Internet.email
   password = "123456"
 
-  user = User.create!(email: email, password: password)
+  user = User.create!(first_name: first_name, email: email, password: password)
 
   user_photo_url = "https://thispersondoesnotexist.com/image"
   user_photo_file = URI.open(user_photo_url)
@@ -34,82 +33,92 @@ end
 boats = [{
   name: "Cash à l'eau",
   description: Faker::Lorem.paragraph,
-  photo: "https://static1.clickandboat.com/v1/p/0lly6fazbt45f0pmeav1ysmoq36dexvv.big.jpg.gz",
+  # photo: "https://static1.clickandboat.com/v1/p/0lly6fazbt45f0pmeav1ysmoq36dexvv.big.jpg.gz",
+  photo: "https://images.unsplash.com/photo-1498623116890-37e912163d5d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80",
   category: "Sun Odissey 349",
   capacity: 6,
-  user: User.last
+  user: User.by_random.first
 },
 {
   name: "Ode mer",
   description: Faker::Lorem.paragraph,
-  photo: "https://static1.clickandboat.com/v1/p/7k56w3ksiells2bia9fp75q0wlym1w64.big.jpg.gz",
+  # photo: "https://static1.clickandboat.com/v1/p/7k56w3ksiells2bia9fp75q0wlym1w64.big.jpg.gz",
+  photo: "https://images.unsplash.com/photo-1533690251914-dd6880431ed0?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80",
   category: "Lagoon 420",
   capacity: 8,
-  user: User.last
+  user: User.by_random.first
 },
 {
   name: "Patpau",
   description: Faker::Lorem.paragraph,
-  photo: "https://static1.clickandboat.com/v1/p/18hjmkt8vm6kdnyvsrf8zwh5gnwi12ax.big.jpg.gz",
+  # photo: "https://static1.clickandboat.com/v1/p/18hjmkt8vm6kdnyvsrf8zwh5gnwi12ax.big.jpg.gz",
+  photo: "https://images.unsplash.com/photo-1573925805234-22b9e43a5450?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1647&q=80",
   category: "Bahia 46",
   capacity: 8,
-  user: User.last
+  user: User.by_random.first
 },
 {
   name: "Lashepriz",
   description: Faker::Lorem.paragraph,
-  photo: "https://static1.clickandboat.com/v1/p/k1hi4mveo5i36s49i666gwb0e1uthpnf.big.jpg.gz",
+  # photo: "https://static1.clickandboat.com/v1/p/k1hi4mveo5i36s49i666gwb0e1uthpnf.big.jpg.gz",
+  photo: "https://images.unsplash.com/photo-1536926272733-fd11abd4e4fd?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1650&q=80",
   category: "Feeling 32",
   capacity: 4,
-  user: User.last
+  user: User.by_random.first
 },
 {
   name: "Nages et tais toi",
   description: Faker::Lorem.paragraph,
-  photo: "https://static1.clickandboat.com/v1/p/lfp29o37ywzht0zp6xq2flhfe6blf6hr.big.jpg.gz",
+  # photo: "https://static1.clickandboat.com/v1/p/lfp29o37ywzht0zp6xq2flhfe6blf6hr.big.jpg.gz",
+  photo: "https://images.unsplash.com/photo-1561562176-d1d598e49589?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80",
   category: "Dufour 45 Performance",
   capacity: 8,
-  user: User.last
+  user: User.by_random.first
 },
 {
   name: "Almaco IV",
   description: Faker::Lorem.paragraph,
-  photo: "https://static1.clickandboat.com/v1/p/ol31joo5zngi85kp9kpl5jx3aubbgata.big.jpg.gz",
+  # photo: "https://static1.clickandboat.com/v1/p/ol31joo5zngi85kp9kpl5jx3aubbgata.big.jpg.gz",
+  photo: "https://images.unsplash.com/photo-1505493018155-f43ad2a7845b?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1567&q=80",
   category: "Laboe 51",
   capacity: 6,
-  user: User.last
+  user: User.by_random.first
 },
 {
   name: "Croque le vent",
   description: Faker::Lorem.paragraph,
-  photo: "https://static1.clickandboat.com/v1/p/te2yJvd38oNcvPy53Bh5dxpQP6VsTR1d.big.jpg.gz",
+  # photo: "https://static1.clickandboat.com/v1/p/te2yJvd38oNcvPy53Bh5dxpQP6VsTR1d.big.jpg.gz",
+  photo: "https://images.unsplash.com/photo-1593346362801-b638bed56187?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2689&q=80",
   category: "Sense 55",
   capacity: 8,
-  user: User.last
+  user: User.by_random.first
 },
 {
   name: "Altaîr",
   description: Faker::Lorem.paragraph,
-  photo: "https://static1.clickandboat.com/v1/p/1pd04n9y42m0k0mq9h2rcvvew9lmgfy8.big.jpg.gz",
+  # photo: "https://static1.clickandboat.com/v1/p/1pd04n9y42m0k0mq9h2rcvvew9lmgfy8.big.jpg.gz",
+  photo: "https://images.unsplash.com/photo-1558384857-10929afd041c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1651&q=80",
   category: "Bali 4.1",
   capacity: 8,
-  user: User.last
+  user: User.by_random.first
 },
 {
   name: "Mangareva",
   description: Faker::Lorem.paragraph,
-  photo: "https://static1.clickandboat.com/v1/p/0gZs8iCPiz5gPymwqDjlYZs9gfaqODGW.big.jpg.gz",
+  # photo: "https://static1.clickandboat.com/v1/p/0gZs8iCPiz5gPymwqDjlYZs9gfaqODGW.big.jpg.gz",
+  photo: "https://images.unsplash.com/photo-1613578699399-82ae71be53a3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1953&q=80",
   category: "Fontaine Pajot 40 Lucia",
   capacity: 4,
-  user: User.last
+  user: User.by_random.first
 },
 {
   name: "Vaîmiti",
   description: Faker::Lorem.paragraph,
-  photo: "https://static1.clickandboat.com/v1/p/5ie0mx2juawys96g0dzl898hbgnuo6p9.big.jpg.gz",
+  # photo: "https://static1.clickandboat.com/v1/p/5ie0mx2juawys96g0dzl898hbgnuo6p9.big.jpg.gz",
+  photo: "https://images.unsplash.com/photo-1542736267-fb6ea61a2e17?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
   category: "Sun-Fast 39",
   capacity: 6,
-  user: User.last
+  user: User.by_random.first
 }]
 
 boats.each do |boat|
@@ -210,7 +219,7 @@ cruises.each do |cruise|
     cruisy.stops.new(location: Location.by_random.first)
   end
   cruisy.stops.new(location: Location.by_random.first, end_location: true)
-  cruisy.boat = Boat.first
+  cruisy.boat = Boat.by_random.first
   cruisy.valid?
   cruisy.save!
   # boaty.photos.attach(boaty.photo)

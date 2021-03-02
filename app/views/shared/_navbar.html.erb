@@ -8,7 +8,7 @@
   <% if params[:action] == 'index' %>
     <%= simple_form_for :search, url: cruises_path(:anchor => "offers"), method: :get do |f| %>
       <div class="search-form-control form-group">
-        <input class="form-control string required" type="text" name="search[query]" id="search_query" />
+        <input class="form-control string required" placeholder="Your dream destination" type="text" name="search[query]" id="search_query" />
         <button name="button" type="button" class="btn btn-flat" id="filter-btn">
           <p class="filter"> <span><i class="fas fa-plus"></i></span><span id="span-color">Add filters</span></p>
         </button>
@@ -23,20 +23,19 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
 
-        <li class="nav-item dropdown">
-          <%= image_tag "menu.png", class: "menu dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%= link_to "Book a cruise", cruises_path, class: "dropdown-item border-right" %>
-            <%= link_to "Dashboard", dashboard_path, class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item border-left" %>
-          </div>
-        </li>
+        <% if current_user.boats.count == 0 %>
+          <%= link_to "Join us as a captain", new_boat_path, class: "btn underline", style: " #{'color:#fdf9f6' if params[:action] == 'home' }"%>
+        <% else %>
+          <%= link_to "Create a cruise", new_cruise_path, class: "btn underline", style: " #{'color:#fdf9f6' if params[:action] == 'home' }" %>
+        <% end %>
 
-        <li class="nav-item active">
-          <div>
-            <%= link_to user_path(current_user) do%>
-              <%= image_tag "https://thispersondoesnotexist.com/image", class: "avatar" %>
-            <% end %>
+        <li class="nav-item dropdown">
+          <%= image_tag "https://thispersondoesnotexist.com/image", class: "avatar  dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to "Profil", user_path(current_user), class: "dropdown-item" %>
+            <%= link_to "Book a cruise", cruises_path, class: "dropdown-item" %>
+            <%= link_to "Dashboard", dashboard_path, class: "dropdown-item" %>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
 

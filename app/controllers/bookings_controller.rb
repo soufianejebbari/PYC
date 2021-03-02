@@ -9,6 +9,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.cruise = @cruise
+    @seats = booking_params[:seats]
     authorize @booking
 
     if @booking.save
@@ -20,6 +21,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:user_id, :cruise_id)
+    params.require(:booking).permit(:user_id, :cruise_id, :seats)
   end
 end

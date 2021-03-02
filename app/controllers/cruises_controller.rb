@@ -36,7 +36,7 @@ class CruisesController < ApplicationController
         lat: location.latitude,
         lng: location.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { location: location.cruises }),
-        image_url: helpers.asset_url('marker_dark.png')
+        image_url: helpers.asset_url('marker_green.png')
       }
     end
   end
@@ -47,8 +47,8 @@ class CruisesController < ApplicationController
     authorize @cruise
     @locations = Location.where(cruise: @cruise)
     markers_bg = {
-      start_location: 'marker_dark.png',
-      stop: 'logo_light.png',
+      start_location: 'marker_green.png',
+      stop: 'marker_dark.png',
       end_location: 'marker_light.png'
     }
     @markers = @cruise.stops.map do |stop|
@@ -68,6 +68,11 @@ class CruisesController < ApplicationController
         image_url: helpers.asset_url(bg)
       }
     end
+    @seat_booked = 0
+    Booking.where(cruise: @cruise).each do |booking|
+     @seat_booked += booking.seats
+    end
+    @booking_capacity = @cruise.boat.capacity - @seat_booked
   end
 
   def new

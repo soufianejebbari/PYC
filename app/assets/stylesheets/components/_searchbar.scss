@@ -28,6 +28,11 @@
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
 }
 
+::-webkit-input-placeholder {
+   color: #ABABAB;
+   font-style: italic;
+}
+
 .btn-flat:hover {
   background-color: transparent;
   border: $green 1px solid;
