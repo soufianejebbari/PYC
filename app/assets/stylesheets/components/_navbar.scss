@@ -62,29 +62,17 @@
 .dropdown-menu {
   border-radius: 3px;
   border: transparent;
-  background-color: white;
-}
-
-.dropdown-menu.show {
-  display: inherit;
+  background-color: transparent;
 }
 
 .navbar-nav .dropdown-menu {
-  position: absolute;
-  left: -867px;
-  top: -12px;
+    left: -100px;
 }
-
-// .navbar-nav .dropdown-menu {
-//     display: flex;
-//     left: -200px;
-// }
 
 .dropdown-item {
   font-weight: 200;
   font-size: 13px;
-  text-align: center;
-  padding: 0.5rem 3.1rem;
+  text-align: right;
 }
 
 .dropdown-item:hover {
@@ -96,10 +84,6 @@
 .btn-flat {
   border-radius: 3px;
 }
-
-// .underline:hover {
-//   text-decoration: underline;
-// }
 
 .underline {
   position: relative;

@@ -2,13 +2,12 @@
     overflow: hidden;
     margin-bottom: 30px;
     z-index: -1;
-    height: 420px;
+    height: 500px;
     border-radius: 3px;
 }
 
-.carousel-item .seed img{
-  margin-top: -500px;
-  height: 100%;
+.carousel-item img{
+  height: 100vh;
 }
 
 .carousel-item {
