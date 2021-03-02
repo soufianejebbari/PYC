@@ -5,6 +5,10 @@
 <div class="container d-flex">
   <div class="cards col-6">
     <% @cruises.each do |cruise| %>
+    <% @seat_booked = 0
+    Booking.where(cruise: cruise).each do |booking|
+     @seat_booked += booking.seats
+    end %>
     <%= link_to cruise_path(cruise) do %>
       <div class="card-trip">
         <%= cl_image_tag cruise.boat.photo, alt: "CRUISE_img" %>
@@ -15,7 +19,7 @@
           <p> <%= cruise.boat.name %> </p>
           <div class="sumup">
             <p> <i class="fas fa-map-marker-alt"></i> <%= cruise.start_location.name %> </p>
-            <p> <i class="fas fa-user"></i> <%= cruise.boat.capacity %> </p>
+            <p> <i class="fas fa-user"></i> <%= cruise.boat.capacity - @seat_booked %> </p>
           </div>
           <div class="card-trip-pricing"><%= cruise.price %>&nbsp;$</div>
            <%= cl_image_tag cruise.boat.user.photo.key, class: "card-trip-user avatar-bordered"%>
