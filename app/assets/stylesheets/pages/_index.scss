@@ -2,7 +2,12 @@
 @import "home";
 @import "show";
 
-// .container {
-//     max-width: 100%;
-//    margin-bottom: 50px;
-// }
+.container {
+    max-width: 100%;
+   margin-bottom: 50px;
+}
+
+.container-2 {
+    max-width: 75%;
+   margin-inline: auto;
+}
