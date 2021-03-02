@@ -33,6 +33,7 @@ class CruisesController < ApplicationController
       stop: 'marker_dark.png',
       end_location: 'marker_light.png'
     }
+    @route = GetRoute.new(start_lat: @cruise.start_location.latitude, start_long: @cruise.start_location.longitude, stop_lat: @cruise.end_location.latitude, stop_long: @cruise.end_location.longitude).call
     @markers = @cruise.stops.map do |stop|
       bg = ''
       if stop.start_location
