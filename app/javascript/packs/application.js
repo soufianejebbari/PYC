@@ -25,6 +25,7 @@ require("channels")
 // External imports
 import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
+import { updateSeatsPrice } from '../components/seats_price_update'
 
 // Internal imports, e.g:
 // import { initImgOnScroll } from '../components/init_img_on_scroll';
@@ -35,6 +36,7 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initMapbox();
+  updateSeatsPrice();
   // initImgOnScroll();
 });
 
