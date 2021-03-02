@@ -137,8 +137,11 @@ label {
 }
 
 .btn-back {
-  margin-top: 30px;
-  background-color: transparent;
+      position: absolute;
+    top: 0;
+    left: 44px;
+    margin-top: 30px;
+    z-index: 100;
 }
 
 #before-avatar:hover::before {
