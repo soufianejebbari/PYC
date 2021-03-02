@@ -63,8 +63,11 @@ class CruisesController < ApplicationController
 
   def create
     @cruise = Cruise.new(cruise_params)
+
     authorize @cruise
     if @cruise.save
+      start_loc = Stop.create(location: Location.find(params[:cruise][:start_location]), cruise: @cruise, start_location: true)
+      end_loc = Stop.create(location: Location.find(params[:cruise][:end_location]), cruise: @cruise, end_location: true)
       flash[:alert] = "Congrats! Your cruise has been created!"
       redirect_to cruise_path(@cruise)
     else
@@ -90,6 +93,10 @@ class CruisesController < ApplicationController
   private
 
   def cruise_params
-    params.require(:cruise).permit(:name, :description, :start_date, :end_date, :price, :start_location, :end_location, :difficulty, :boat_id)
+    params.require(:cruise).permit(:name, :description, :start_date, :end_date, :end_date, :price, :difficulty, :boat_id)
+  end
+
+  def start_location_param
+    params.require(:cruise).permit(:start_location, :end_location)
   end
 end

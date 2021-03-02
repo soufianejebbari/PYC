@@ -10,4 +10,6 @@ class Boat < ApplicationRecord
   validates :category, presence: true
 
   multisearchable against: [:name, :category]
+
+  BOAT_CATEGORY = ["Monocoque", "Catamaran", "Ketch"]
 end

@@ -22,10 +22,10 @@ class Cruise < ApplicationRecord
   end
 
   def start_location
-    self.stops.find_by(start_location: true).location
+    self.stops.find_by(start_location: true).location if self.stops.find_by(start_location: true)
   end
 
   def end_location
-    self.stops.find_by(end_location: true).location
+    self.stops.find_by(end_location: true).location if self.stops.find_by(end_location: true)
   end
 end
