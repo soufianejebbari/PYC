@@ -10,7 +10,7 @@ Boat.destroy_all
 Booking.destroy_all
 Location.destroy_all
 User.destroy_all
-# Review.destroy_all
+Review.destroy_all
 # Message.destroy_all
 
 puts "done destroying"
@@ -154,8 +154,6 @@ marseille = Location.new(name: "Marseille")
 marseille.save!
 
 
-
-
 cruises = [{
 
   name: "Sicilia, eterna primavera!",
@@ -210,7 +208,6 @@ cruises = [{
 }
 ]
 
-
 cruises.each do |cruise|
   cruisy = Cruise.new(cruise)
   p cruisy
@@ -220,6 +217,15 @@ cruises.each do |cruise|
   end
   cruisy.stops.new(location: Location.by_random.first, end_location: true)
   cruisy.boat = Boat.by_random.first
+  rand(5).times do
+    @review = Review.new(
+      cruise: cruisy,
+      user: User.by_random.first,
+      content: Faker::Restaurant.review,
+      rating: rand(5)
+    )
+    @review.save
+  end
   cruisy.valid?
   cruisy.save!
   # boaty.photos.attach(boaty.photo)
