@@ -31,7 +31,7 @@ puts "done destroying"
 end
 
 boats = [{
-  name: "Cash à l'eau",
+  name: "Cash a l'eau",
   description: Faker::Lorem.paragraph,
   # photo: "https://static1.clickandboat.com/v1/p/0lly6fazbt45f0pmeav1ysmoq36dexvv.big.jpg.gz",
   photo: "https://images.unsplash.com/photo-1498623116890-37e912163d5d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80",
@@ -94,7 +94,7 @@ boats = [{
   user: User.by_random.first
 },
 {
-  name: "Altaîr",
+  name: "Altair",
   description: Faker::Lorem.paragraph,
   # photo: "https://static1.clickandboat.com/v1/p/1pd04n9y42m0k0mq9h2rcvvew9lmgfy8.big.jpg.gz",
   photo: "https://images.unsplash.com/photo-1558384857-10929afd041c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1651&q=80",
@@ -112,7 +112,7 @@ boats = [{
   user: User.by_random.first
 },
 {
-  name: "Vaîmiti",
+  name: "Vaimiti",
   description: Faker::Lorem.paragraph,
   # photo: "https://static1.clickandboat.com/v1/p/5ie0mx2juawys96g0dzl898hbgnuo6p9.big.jpg.gz",
   photo: "https://images.unsplash.com/photo-1542736267-fb6ea61a2e17?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
