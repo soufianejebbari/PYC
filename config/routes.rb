@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   end
 
   resources :boats, only:  [:new, :create, :update, :edit]
-  get 'dashboard', to: 'dashboards#dashboard'
+  get 'dashboard', to: 'pages#dashboard'
 
 end
 
