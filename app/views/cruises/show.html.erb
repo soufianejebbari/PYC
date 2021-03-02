@@ -80,6 +80,8 @@
             <div class="d-flex align-items-start justify-content-between">
             <%= cl_image_tag review.user.photo.key, class: "avatar-bordered"%>
             <li class="comment ml-3 mb-3" style="font-size: 14px">
+              <div class="d-flex justify-content-between">
+              <div>
               <% if review.rating == 1 %>
               <i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
               <% elsif review.rating == 2 %>
@@ -91,7 +93,10 @@
               <% else %>
               <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
               <% end %>
-              <div class="border-top mt-2 pt-2"><em style="opacity: .7">"<%= review.content %>"</em></div>
+              </div>
+              <p>by <%= review.user.first_name %></p>
+              </div>
+              <div class="border-top pt-2"><em style="opacity: .7">"<%= review.content %>"</em></div>
             </li>
             </div>
           <% end %>
