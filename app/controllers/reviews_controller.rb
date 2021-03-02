@@ -1,9 +1,5 @@
 class ReviewsController < ApplicationController
 
-  def index
-    @review = Review.all(params[:cruise_id])
-  end
-
   def new
     @cruise = Cruise.find(params[:cruise_id])
     @review = Review.new
