@@ -107,7 +107,11 @@
     <div class="card-book">
       <div class="form-wrapper">
         <h3>Hey Sailor, </h3>
-        Are you ready to board with <strong><%= @cruise.boat.user.first_name %></strong> <br>from <div class="green-txt"><%= @cruise.start_date %></div> to <div class="green-txt"><%= @cruise.end_date %></div> ?
+        <% if  @booking_capacity == 0 %>
+          Sorry you can't board with <strong><%= @cruise.boat.user.first_name %></strong>, there is no more place onboard...
+        <% else %>
+          Are you ready to board with <strong><%= @cruise.boat.user.first_name %></strong> <br>from <div class="green-txt"><%= @cruise.start_date %></div> to <div class="green-txt"><%= @cruise.end_date %></div> ?
+        <% end %>
         <% unless @booking_capacity == 0 %>
           <%= simple_form_for [@cruise, @booking] do |f| %>
             <div class="mt-3" data-price = "<%= @cruise.price.to_i %>" id = "price_cruise">
