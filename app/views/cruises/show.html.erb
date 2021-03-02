@@ -31,7 +31,7 @@
         </div>
 
           <p class="border-right mr-2" id="top-info"> <i class="fas fa-map-marker-alt"></i> <%= @cruise.start_location.name %> </p>
-          <p class="border-right mr-2" id="top-info"> <i class="fas fa-user"></i> <%= @cruise.boat.capacity %> </p>
+          <p class="border-right mr-2" id="top-info"> <i class="fas fa-user"></i> <%= @booking_capacity %> </p>
           <p id="top-info">
             <i class="fas fa-bolt"></i> <%= @cruise.difficulty %>
             <% if @cruise.difficulty == 1 %>
@@ -73,11 +73,11 @@
         Are you ready to board with <strong><%= @cruise.boat.user.first_name %></strong> <br>from <div class="green-txt"><%= @cruise.start_date %></div> to <div class="green-txt"><%= @cruise.end_date %></div> ?
         <% unless @booking_capacity == 0 %>
           <%= simple_form_for [@cruise, @booking] do |f| %>
-            <div class="mt-3">
-              <%= f.input :seats, input_html: { min: 1, max: @booking_capacity, step: 1 }, hint: ("#{@booking_capacity} seats available")%>
+            <div class="mt-3" data-price = "<%= @cruise.price.to_i %>" id = "price_cruise">
+              <%= f.input :seats, input_html: { min: 1, max: @booking_capacity, step: 1 }, hint: ("#{@booking_capacity} seats available") %>
             </div>
             <div>
-              <%= f.button :button, "Board now for #{@cruise.price.to_i*@booking[:seats]} $", class: "btn btn-flat btn-book btn-success" %>
+              <%= f.button :button, "Board now for #{@cruise.price.to_i*@booking[:seats]} $", class: "btn btn-flat btn-book btn-success", id: "btn-total" %>
               <% p console %>
             </div>
           <% end %>
@@ -86,29 +86,6 @@
     </div>
 
 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-book btn-success" data-toggle="modal" data-target="#bookingFormModal">
-  Launch Booking Modal
-</button>
 
-<!-- Modal -->
-<div class="modal fade" id="bookingFormModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <%= simple_form_for [@cruise, @booking] do |f| %>
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Booking Modal</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <%= f.input :seats  %>
-        </div>
-        <div class="modal-footer">
-          <%= f.button :button, "Board now", class: "btn btn-flat btn-book btn-success" %>
-        </div>
-      <% end %>
-    </div>
-  </div>
-</div>
+
+
