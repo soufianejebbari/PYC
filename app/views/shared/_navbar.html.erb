@@ -30,7 +30,7 @@
         <% end %>
 
         <li class="nav-item dropdown">
-          <%= cl_image_tag current_user.photo.key, class: "avatar  dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <%= cl_image_tag current_user.photo.key, class: "avatar  dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false if current_user.photo.attached?%>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <%= link_to "Profil", user_path(current_user), class: "dropdown-item" %>
             <%= link_to "Book a cruise", cruises_path, class: "dropdown-item" %>
