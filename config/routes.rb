@@ -15,11 +15,11 @@ Rails.application.routes.draw do
 
   resources :cruises do
     resources :bookings, only: [:index, :show, :new, :create]
-    resources :reviews, only: [:index, :new, :create ]
+    resources :reviews, only: [:new, :create]
   end
 
   resources :boats, only:  [:new, :create, :update, :edit]
-  get 'dashboard', to: 'dashboards#dashboard'
+  get 'dashboard', to: 'pages#dashboard'
 
 end
 
