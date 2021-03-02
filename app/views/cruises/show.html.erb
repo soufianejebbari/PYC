@@ -54,7 +54,7 @@
            style="width: 100%; height: 515px; border-radius: 5px"
            data-markers="<%= @markers.to_json %>"
            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-           data-route = "<%= @cruise.stops.map{ |stop| [stop.location.longitude, stop.location.latitude] } %>"
+           data-route = "<%= @route %>"
         ></div>
 
         <h3 class="py-3 border-top" id="show-title">About the boat : <%= @cruise.boat.name %></h3>
