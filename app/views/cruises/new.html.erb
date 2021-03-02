@@ -5,8 +5,8 @@
   <%= f.input :price %>
   <%= f.input :start_date %>
   <%= f.input :end_date %>
-  <%= f.input :start_location_id, collection: Location.all %>
-  <%= f.input :end_location_id, collection: Location.all %>
+  <%= f.input :start_location, collection: Location.all %>
+  <%= f.input :end_location, collection: Location.all %>
   <%= f.input :difficulty %>
   <%= f.input :boat_id, collection: current_user.boats %>
   <%= f.submit %>
