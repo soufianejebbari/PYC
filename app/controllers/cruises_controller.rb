@@ -43,7 +43,6 @@ class CruisesController < ApplicationController
         bg = markers_bg[:stop]
       end
       {
-
         lat: stop.location.latitude,
         lng: stop.location.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { location: stop.location.cruises }),
