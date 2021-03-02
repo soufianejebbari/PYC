@@ -1,4 +1,5 @@
 .carousel-inner {
+  position: relative;
     overflow: hidden;
     margin-bottom: 30px;
     z-index: -1;
@@ -6,13 +7,9 @@
     border-radius: 3px;
 }
 
-.carousel-item img{
-  height: 100vh;
-}
+// .carousel-item img{
 
-.carousel-item {
-  object-fit: cover;
-}
+// }
 
 .tag i {
     margin-bottom: 21px;
@@ -20,4 +17,8 @@
 
 .carousel {
   overflow: hidden;
+}
+
+.cover {
+  object-fit: cover;
 }

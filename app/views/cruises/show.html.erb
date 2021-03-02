@@ -4,13 +4,13 @@
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <div class="seed"><%= cl_image_tag @cruise.boat.photo, alt: "SURFBOARD"%></div>
+              <div><%= cl_image_tag @cruise.boat.photo, alt: "SURFBOARD", class: "cover"%></div>
             </div>
             <div class="carousel-item">
-              <img class="d-block w-100" src="https://source.unsplash.com/1600x900/?sailingboat" alt="Second slide">
+              <img class="d-block w-100 cover" src="https://source.unsplash.com/1600x900/?sailingboat" alt="Second slide">
             </div>
             <div class="carousel-item">
-              <img class="d-block w-100" src="https://source.unsplash.com/1600x900/?boat" alt="Second slide">
+              <img class="d-block w-100 cover" src="https://source.unsplash.com/1600x900/?boat" alt="Second slide">
             </div>
           </div>
           <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
