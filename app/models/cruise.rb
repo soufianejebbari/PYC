@@ -1,4 +1,5 @@
 class Cruise < ApplicationRecord
+  include PgSearch::Model
   belongs_to :boat
   has_many :bookings, dependent: :destroy
   has_many :stops, dependent: :destroy
