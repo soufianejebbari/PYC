@@ -1,42 +1,33 @@
-<div class="container-2">
-
-  <h2> When boat created, you can propose a cruise... </h2>
-
-  <%= simple_form_for(@boat) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%#= f.input :category, collection: Boat::BOAT_CATEGORY, as: :radio_buttons, collection_wrapper_tag: 'div',
-            collection_wrapper_class: 'category-wrapper',
-            item_wrapper_class: 'category-item',
-            input_html: {class: 'category-selector'} %>
-  <fieldset class="form-group radio_buttons required boat_category">
-    <legend class="col-form-label pt-0">Category <abbr title="required">*</abbr></legend>
-    <div class="category-wrapper">
-      <input type="hidden" name="boat[category]" value="">
-      <div class="category-item" data-children-count="1">
-        <input class="form-check-input radio_buttons required category-selector" type="radio" value="Monocoque" name="boat[category]" id="boat_category_monocoque">
-        <label class="form-check-label collection_radio_buttons" for="boat_category_monocoque">
-          <%= image_tag "Monocoque.png" %>
-          <h5>Monocoque</h5>
-        </label>
-      </div>
-      <div class="category-item" data-children-count="1">
-        <input class="form-check-input radio_buttons required category-selector" type="radio" value="Catamaran" name="boat[category]" id="boat_category_catamaran">
-        <label class="form-check-label collection_radio_buttons" for="boat_category_catamaran">
-          <%= image_tag "Catamaran.png" %>
-            <h5>Catamaran</h5>
-          </label>
-      </div>
-      <div class="category-item" data-children-count="1">
-        <input class="form-check-input radio_buttons required category-selector" type="radio" value="Ketch" name="boat[category]" id="boat_category_ketch">
-        <label class="form-check-label collection_radio_buttons" for="boat_category_ketch"><%= image_tag "Ketch.png" %>
-            <h5>Ketch</h5></label>
-      </div>
-    </div>
-  </fieldset>
-  <%= f.input :capacity, input_html: { min: 1, max: 8, step: 1, value: 1 } %>
-  <%= f.file_field :photos, multiple: true%>
-  <%= f.submit %>
-  <% end %>
-</div>
+<%= simple_form_for(@boat) do |f| %>
+          <%= f.input :name %>
+          <%= f.input :description %>
+          <fieldset class="form-group radio_buttons required boat_category">
+            <legend class="col-form-label pt-0">Category <abbr title="required">*</abbr></legend>
+            <div class="category-wrapper">
+              <input type="hidden" name="boat[category]" value="">
+              <div class="category-item" data-children-count="1">
+                <input class="form-check-input radio_buttons required category-selector" type="radio" value="Monocoque" name="boat[category]" id="boat_category_monocoque">
+                <label class="form-check-label collection_radio_buttons" for="boat_category_monocoque">
+                  <%= image_tag "monocoque.png" %>
+                  <h5>Monocoque</h5>
+                </label>
+              </div>
+              <div class="category-item" data-children-count="1">
+                <input class="form-check-input radio_buttons required category-selector" type="radio" value="Catamaran" name="boat[category]" id="boat_category_catamaran">
+                <label class="form-check-label collection_radio_buttons" for="boat_category_catamaran">
+                  <%= image_tag "catamaran.png" %>
+                    <h5>Catamaran</h5>
+                  </label>
+              </div>
+              <div class="category-item" data-children-count="1">
+                <input class="form-check-input radio_buttons required category-selector" type="radio" value="Ketch" name="boat[category]" id="boat_category_ketch">
+                <label class="form-check-label collection_radio_buttons" for="boat_category_ketch"><%= image_tag "ketch.png" %>
+                    <h5>Ketch</h5></label>
+              </div>
+            </div>
+          </fieldset>
+          <%= f.input :capacity, input_html: { min: 1, max: 8, step: 1, value: 1 } %>
+          <%= f.file_field :photos, multiple: true%>
+          <%= f.submit %>
+          <% end %>
 
