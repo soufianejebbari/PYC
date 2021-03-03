@@ -1,4 +1,26 @@
+<div class="container">
 <h1>Dashboard</h1>
+
+  <% if @user.bookings.size == 0 %>
+    <h2> You have no upcoming reservations!</h2>
+    <% else %>
+    <h3> You have an upcoming reservation </h3>
+  <% @bookings.each do |booking| %>
+  <div class="card-trip">
+    <%= cl_image_tag @cruise.boat.photo, alt: "CRUISE_img" %>
+    <div class="card-trip-infos">
+      <div>
+        <h4><%= booking.cruise.name %></h4>
+        <P>From :<%= booking.start_date %></p>
+        <p>To :<%= booking.end_date %></p>
+      </div>
+      <div class="card-trip-pricing"><%= cruise.price %>&nbsp;$</div>
+      <%= cl_image_tag cruise.boat.user.photo.key, class: "card-trip-user avatar-bordered"%>
+    </div>
+  </div>
+    <% end %>
+  <% end %>
+</div>
 
 
 <% if policy(Boat).edit? %>
