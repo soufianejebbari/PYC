@@ -20,6 +20,5 @@ Rails.application.routes.draw do
 
   resources :boats, only:  [:new, :create, :update, :edit]
   get 'dashboard', to: 'pages#dashboard'
-
 end
 

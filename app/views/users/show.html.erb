@@ -4,15 +4,15 @@
 <%= link_to "See my boat(s)", user_boats_path(current_user) %>
 <% end %>
 
-<% if User.find(params[:id]) == current_user%>
-<%= link_to "Add a boat", new_boat_path %>
-<% end %>
-
 <!-- Modal btn-->
 
 <% if User.find(params[:id]) == current_user%>
   <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter">
-    Add a boat
+    <% if current_user.boats.count == 0 %>
+      Become captain
+    <% else %>
+      Add a new boat
+    <% end %>
   </button>
 <% end %>
 

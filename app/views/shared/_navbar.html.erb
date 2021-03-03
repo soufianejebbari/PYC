@@ -24,7 +24,7 @@
       <% if user_signed_in? %>
 
         <% if current_user.boats.count == 0 %>
-          <%= link_to "Join us as a captain", new_boat_path, class: "btn underline", style: " #{'color:#fdf9f6' if params[:action] == 'home' }"%>
+          <%= link_to "Join us as a captain", dashboard_path, class: "btn underline", style: " #{'color:#fdf9f6' if params[:action] == 'home' }"%>
         <% else %>
           <%= link_to "Create a cruise", new_cruise_path, class: "btn underline", style: " #{'color:#fdf9f6' if params[:action] == 'home' }" %>
         <% end %>
