@@ -1,13 +1,15 @@
-<%= simple_form_for(@cruise) do |f| %>
-  <!-- <label for="boats"> </label> -->
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :price %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
-  <%= f.input :start_location, collection: Location.all %>
-  <%= f.input :end_location, collection: Location.all %>
-  <%= f.input :difficulty %>
-  <%= f.input :boat_id, collection: current_user.boats %>
-  <%= f.submit %>
-<% end %>
+<div class="container-2">
+  <%= simple_form_for(@cruise) do |f| %>
+    <!-- <label for="boats"> </label> -->
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :price %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%= f.input :start_location, collection: Location.all %>
+    <%= f.input :end_location, collection: Location.all %>
+    <%= f.input :difficulty %>
+    <%= f.input :boat_id, collection: current_user.boats %>
+    <%= f.submit %>
+  <% end %>
+</div>
