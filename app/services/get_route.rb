@@ -47,3 +47,4 @@ class GetRoute
    data['features'][0]['geometry']['coordinates']
   end
  end
+ 
