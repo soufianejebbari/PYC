@@ -26,6 +26,7 @@ require("channels")
 import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
 import { updateSeatsPrice } from '../components/seats_price_update'
+import {initFlatpicker} from "../plugins/flatpickr";
 
 // Internal imports, e.g:
 // import { initImgOnScroll } from '../components/init_img_on_scroll';
@@ -37,6 +38,7 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   initMapbox();
   updateSeatsPrice();
+  initFlatpicker();
   // initImgOnScroll();
 });
 

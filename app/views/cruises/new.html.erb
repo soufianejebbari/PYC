@@ -13,3 +13,20 @@
     <%= f.submit %>
   <% end %>
 </div>
+
+<div class="modal-body">
+    <%= simple_form_for @cruise do |f| %>
+
+    <div class="d-flex">
+      <div class="col-6 pl-0">
+        <%= f.input :name , placeholder: 'ex : Nice Cruise in Corsica', label:false %>
+        <%= f.input :description , placeholder: 'Description', label:false, as: :text, :input_html => {:style => 'width: 100%', :rows => 5}%>
+        <%= f.input :boat_id, prompt: 'With which of your boat ?', label:false, collection: current_user.boats %>
+        <%= f.input :start_date, as: :string, label: false, input_html: {class: "datepicker"} %>
+        <%= f.input :end_date, as: :string, label: false, input_html: {class: "datepicker"} %>
+      </div>
+    </div>
+    <input type="submit" name="commit" value="I'm done" class="mt-3 btn btn-flat btn-create btn-success" data-disable-with="Create Boat">
+
+    <% end %>
+</div>
