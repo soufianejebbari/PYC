@@ -16,7 +16,7 @@
           <div>
             <h2><%= cruise.name%></h2>
           </div>
-          <p> <%= cruise.boat.name %> </p>
+          <p class="mb-2"> <%= cruise.boat.name %> <br>from <span style="color: #90caa0"><%= cruise.start_date %></span> to <span style="color: #90caa0"><%= cruise.end_date %></span></p>
           <div class="sumup">
             <p> <i class="fas fa-map-marker-alt"></i> <%= cruise.start_location.name %> </p>
             <p> <i class="fas fa-user"></i> <%= cruise.boat.capacity - @seat_booked %> </p>
