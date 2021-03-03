@@ -34,7 +34,7 @@ class CruisesController < ApplicationController
       end_location: 'marker_light.png'
     }
     # @route = GetRoute.new([@cruise.stops.first, @cruise.stops.last]).call
-    @route = @cruise.stops.each_cons(2).map { |step| GetRoute.new([step.first, step.last]).call}.flatten(1)
+    @route = @cruise.route
     @markers = @cruise.stops.map do |stop|
       bg = ''
       if stop.start_location
@@ -70,6 +70,7 @@ class CruisesController < ApplicationController
     if @cruise.save
       start_loc = Stop.create(location: Location.find(params[:cruise][:start_location]), cruise: @cruise, start_location: true)
       end_loc = Stop.create(location: Location.find(params[:cruise][:end_location]), cruise: @cruise, end_location: true)
+      @cruise.routing
       flash[:alert] = "Congrats! Your cruise has been created!"
       redirect_to cruise_path(@cruise)
     else

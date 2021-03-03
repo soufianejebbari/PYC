@@ -4,6 +4,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     authorize @user
+    @boat = Boat.new
+    authorize @boat
   end
 
   def new
