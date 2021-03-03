@@ -32,6 +32,7 @@
 
           <p class="border-right mr-2" id="top-info"> <i class="fas fa-map-marker-alt"></i> <%= @cruise.start_location.name %> </p>
           <p class="border-right mr-2" id="top-info"> <i class="fas fa-user"></i> <%= @booking_capacity %> </p>
+          <p class="border-right pr-1 mr-1" id="top-info"> <i class="fas fa-calendar-alt"></i> <%= @cruise.start_date %> · <%= @cruise.end_date %></p>
           <p id="top-info">
             <i class="fas fa-bolt"></i> <%= @cruise.difficulty %>
             <% if @cruise.difficulty == 1 %>
