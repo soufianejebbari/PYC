@@ -25,10 +25,13 @@ puts "done destroying"
 
   user = User.create!(first_name: first_name, email: email, password: password)
 
+  
   user_photo_url = "https://thispersondoesnotexist.com/image"
   user_photo_file = URI.open(user_photo_url)
   user.photo.attach(io: user_photo_file, filename: "user_photo")
 end
+
+User.create(email: 'mizrahimarc@gmail.com', password: 123456)
 
 boats = [{
   name: "Cash a l'eau",
@@ -211,11 +214,19 @@ cruises = [{
 cruises.each do |cruise|
   cruisy = Cruise.new(cruise)
   p cruisy
-  cruisy.stops.new(location: Location.by_random.first, start_location: true)
-  (0..3).to_a.sample.times do
-    cruisy.stops.new(location: Location.by_random.first)
+  # cruisy.stops.new(location: Location.by_random.first, start_location: true)
+
+  # cruisy.stops.new(location: Location.first, start_location: true)
+  # cruisy.stops.new(location: Location.last)
+  # cruisy.stops.new(location: Location.first, end_location: true)
+
+  qt = (2..5).to_a.sample
+  Location.by_random.first(qt).each do |loc|
+    cruisy.stops.new(location: loc)
   end
-  cruisy.stops.new(location: Location.by_random.first, end_location: true)
+  # cruisy.stops.first.start_location = true
+  # cruisy.stops.last.start_location = true
+  # cruisy.stops.new(location: Location.by_random.first, end_location: true)
   cruisy.boat = Boat.by_random.first
   rand(5).times do
     @review = Review.new(
@@ -227,6 +238,7 @@ cruises.each do |cruise|
     @review.save
   end
   cruisy.valid?
+  cruisy.routing
   cruisy.save!
   # boaty.photos.attach(boaty.photo)
 end

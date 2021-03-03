@@ -22,10 +22,18 @@ class Cruise < ApplicationRecord
   end
 
   def start_location
-    self.stops.find_by(start_location: true).location if self.stops.find_by(start_location: true)
+    # self.stops.find_by(start_location: true).location if self.stops.find_by(start_location: true)
+    self.stops.first.location
   end
 
   def end_location
-    self.stops.find_by(end_location: true).location if self.stops.find_by(end_location: true)
+    # self.stops.find_by(end_location: true).location if self.stops.find_by(end_location: true)
+    self.stops.last.location
   end
+
+  def routing
+   self.route = stops.each_cons(2).map { |step| GetRoute.new([step.first, step.last]).call}.flatten(1)
+   self.save
+  end
+
 end
