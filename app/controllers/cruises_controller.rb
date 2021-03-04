@@ -17,7 +17,7 @@ class CruisesController < ApplicationController
       {
         lat: location.latitude,
         lng: location.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { location: location.cruises }),
+        infoWindow: render_to_string(partial: "info_window", locals: { cruises: location.cruises }),
         image_url: helpers.asset_url('marker_green.png')
       }
     end
