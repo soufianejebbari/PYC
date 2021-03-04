@@ -9,7 +9,6 @@
     <%= simple_form_for :search, url: cruises_path, method: :get do |f| %>
       <div class="search-form-control form-group">
         <input class="form-control string required" placeholder="Your dream destination" type="text" name="search[query]" id="search_query" value= <%= params[:search][:query] %> />
-        <%= p console %>
         <button name="button" type="button" class="btn btn-flat" id="filter-btn">
           <p class="filter"> <span><i class="fas fa-plus"></i></span><span id="span-color">Add filters</span></p>
         </button>
