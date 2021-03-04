@@ -3,7 +3,7 @@
   <div id="left" class="col-4" >
     <h3 id="show-title" class="my-3">My reservations</h3>
 
-    <div style="height: 74vh; overflow:scroll; background-color: #293133; border-radius:5px; padding: 20px">
+    <div style="height: 73vh; overflow:scroll; background-color: #293133; border-radius:5px; padding: 20px">
     <% if @user.bookings.size == 0 %>
       <p style="color: #fdf9f6"> You have no upcoming reservations</p>
 
@@ -15,9 +15,9 @@
                     <div class="card-product my-3">
                       <%= cl_image_tag booking.cruise.boat.photo, alt: "CRUISE_img" %>
                       <div class="card-product-infos">
-                        <p><i class="fas fa-user"></i> <%= booking[:seats] %> seat(s) booked for <%= booking.cruise.price.to_i*booking[:seats] %> $</p>
-                        <p><i class="fas fa-map-marker-alt"></i> <%= booking.cruise.start_location.name %> </p>
-                        <p><i class="fas fa-calendar-alt"></i> <%= booking.cruise.start_date %> · <%= booking.cruise.end_date %></p>
+                        <p class="mt-1"><i class="fas fa-user"></i> <%= booking[:seats] %> seat(s) booked for <%= booking.cruise.price.to_i*booking[:seats] %> $</p>
+                        <p class="mt-2"><i class="fas fa-map-marker-alt"></i> <%= booking.cruise.start_location.name %> </p>
+                        <p class="mt-2"><i class="fas fa-calendar-alt"></i> <%= booking.cruise.start_date %> · <%= booking.cruise.end_date %></p>
                       </div>
                     </div>
         <% end %>
@@ -27,12 +27,13 @@
       <% @bookings.each do |booking| %>
         <% if booking.cruise.start_date < (Date.today) %>
                   <div class="card-product my-3" style="filter:brightness(1); opacity:.7">
-                    <%= cl_image_tag booking.cruise.boat.photo, alt: "CRUISE_img" %>
-                    <div class="card-product-infos">
-                      <p><%= booking.cruise.name %></p>
-                      <p>Product description with <strong>relevant info</strong> only.</p>
+                      <%= cl_image_tag booking.cruise.boat.photo, alt: "CRUISE_img" %>
+                      <div class="card-product-infos">
+                        <p class="mt-1"><i class="fas fa-user"></i> <%= booking[:seats] %> seat(s) booked for <%= booking.cruise.price.to_i*booking[:seats] %> $</p>
+                        <p class="mt-2"><i class="fas fa-map-marker-alt"></i> <%= booking.cruise.start_location.name %> </p>
+                        <p class="mt-2"><i class="fas fa-calendar-alt"></i> <%= booking.cruise.start_date %> · <%= booking.cruise.end_date %></p>
+                      </div>
                     </div>
-                  </div>
         <% end %>
       <% end %>
     <% end %>
@@ -90,7 +91,7 @@
         <% boat.cruises.each do |cruise| %>
           <%= link_to cruise_path(cruise) do %>
           <div class="card-trip my-3 mx-2" style="background: transparent; box-shadow: 0 0 15px rgba(0,0,0,0); position: relative; width:200px; padding-bottom: 0px;">
-            <%= cl_image_tag cruise.boat.photo, alt: "CRUISE_img", style: "height:200px; border-radius:3px"%>
+            <%= cl_image_tag cruise.boat.photo, alt: "CRUISE_img", style: "height:190px; border-radius:3px"%>
             <div class="card-trip-infos" style="padding: 10px 0px;">
               <p class="ml-1"><%= cruise.name %></p>
               <p class="ml-1"> <i class="fas fa-map-marker-alt"></i> <%= cruise.start_location.name %> </p>
