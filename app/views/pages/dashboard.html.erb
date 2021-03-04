@@ -54,61 +54,124 @@
         Add a new boat
       <% end %>
     </button>
-    </div>
+  </div>
 
-    <div class="slider d-flex">
-      <% current_user.boats.each do |boat| %>
-          <div class="card-trip my-3 mx-2" style="background: transparent; box-shadow: 0 0 15px rgba(0,0,0,0); position: relative; width:200px; padding-bottom: 0px;">
-            <%= cl_image_tag boat.photo, style: "border-radius:3px", alt: "BOAT_img" %>
+  <div class="slider d-flex">
+    <% current_user.boats.each do |boat| %>
+        <div class="card-trip my-3 mx-2" style="background: transparent; box-shadow: 0 0 15px rgba(0,0,0,0); position: relative; width:200px; padding-bottom: 0px;">
+          <%= cl_image_tag boat.photo, style: "border-radius:3px", alt: "BOAT_img" %>
 
-            <div class="card-trip-infos d-flex" style="padding: 10px 0px;">
-              <p><%= boat.name %></p>
-              <p style="position: absolute; right: 0px;"> <%= boat.capacity%> <i class="fas fa-user"></i> </p>
-            </div>
-
-            <div class="mb-3" style="position: absolute; top:10px; left: 10px">
-              <% if boat.category == "ketch"%>
-                <%= image_tag "ketch.png", style: "height:40px" %>
-              <% elsif boat.category == "monocoque"%>
-                <%= image_tag "monocoque.png", style: "height:40px" %>
-              <% else %>
-                <%= image_tag "catamaran.png", style: "height:40px" %>
-              <% end %>
-            </div>
-
+          <div class="card-trip-infos d-flex" style="padding: 10px 0px;">
+            <p><%= boat.name %></p>
+            <p style="position: absolute; right: 0px;"> <%= boat.capacity%> <i class="fas fa-user"></i> </p>
           </div>
-      <% end %>
-    </div>
+
+          <div class="mb-3" style="position: absolute; top:10px; left: 10px">
+            <% if boat.category == "ketch"%>
+              <%= image_tag "ketch.png", style: "height:40px" %>
+            <% elsif boat.category == "monocoque"%>
+              <%= image_tag "monocoque.png", style: "height:40px" %>
+            <% else %>
+              <%= image_tag "catamaran.png", style: "height:40px" %>
+            <% end %>
+          </div>
+
+        </div>
+    <% end %>
+  </div>
 
 
-    <div class="d-flex justify-content-between px-2 pt-2 border-top" style="width:100%; height: 30px; align-items: baseline;">
+  <div class="d-flex justify-content-between px-2 pt-2 border-top" style="width:100%; height: 30px; align-items: baseline;">
     <h3 id="show-title" class="mt-3 mb-1">My cruises</h3>
     <%= link_to "Create a cruise", new_cruise_path, class: "btn btn-flat btn-success" %>
-    </div>
+  </div>
 
-    <div class="slider d-flex mt-4">
-      <% @boats.each do |boat| %>
-        <% boat.cruises.each do |cruise| %>
+  <div class="slider d-flex mt-4">
+    <% @boats.each do |boat| %>
+      <% boat.cruises.each do |cruise| %>
+        <div style="position: relative">
           <%= link_to cruise_path(cruise) do %>
-          <div class="card-trip my-3 mx-2" style="background: transparent; box-shadow: 0 0 15px rgba(0,0,0,0); position: relative; width:200px; padding-bottom: 0px;">
-            <%= cl_image_tag cruise.boat.photo, alt: "CRUISE_img", style: "height:190px; border-radius:3px"%>
-            <div class="card-trip-infos" style="padding: 10px 0px;">
-              <p class="ml-1"><%= cruise.name %></p>
-              <p class="ml-1"> <i class="fas fa-map-marker-alt"></i> <%= cruise.start_location.name %> </p>
-              <p class="ml-1"> <i class="fas fa-calendar-alt"></i> <%= cruise.start_date %> · <%= cruise.end_date %></p>
-            </div>
-                <!-- Modal btn-->
-                <button type="button" class="btn btn-flat btn-success" data-toggle="modal" data-target="#exampleModalCenter" style="border-radius:50%; position: absolute; top:10px; right:10px;">
-                 2
-               </button>
+            <div class="card-trip my-3 mx-2" style="background: transparent; box-shadow: 0 0 15px rgba(0,0,0,0); position: relative; width:200px; padding-bottom: 0px;">
+              <%= cl_image_tag cruise.boat.photo, alt: "CRUISE_img", style: "height:190px; border-radius:3px"%>
+              <div class="card-trip-infos" style="padding: 10px 0px;">
+                <p class="ml-1"><%= cruise.name %></p>
+                <p class="ml-1"> <i class="fas fa-map-marker-alt"></i> <%= cruise.start_location.name %> </p>
+                <p class="ml-1"> <i class="fas fa-calendar-alt"></i> <%= cruise.start_date %> · <%= cruise.end_date %></p>
+              </div>
             </div>
           <% end %>
-        <% end %>
+
+          <button type="button" class="btn btn-success" data-toggle="modal" data-target="#ValidateBooking<%= cruise.id %>" style="z-index:1000; border-radius:50%; width: 37px; position: absolute; top: 0; box-shadow: 0 0 15px rgba(0,0,0,0.2)">
+            <%= cycle("0", "2") %>
+          </button>
+        </div>
+        <div class="modal fade" id="ValidateBooking<%= cruise.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+
+              <div class="modal-header pb-0">
+                <p class="green-txt" id="exampleModalLongTitle" id="show-title">You have 2 crew members pending for validation :</p>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+
+              <div class="modal-body">
+                <div class="border-top pt-3 d-flex justify-content-between" style="align-items: baseline;">
+                  <div class="d-flex" style="align-items: baseline">
+                  <p> <%= image_tag "https://thispersondoesnotexist.com/image", class: "avatar-bordered" %></p>
+                  <p class="pl-3"> <span style="font-weight: bold">Sacha</span> want to book 2 place on your cruise </p>
+                  </div>
+                  <div class="d-flex" style="align-items: baseline">
+                    <div>
+                    <%= image_tag "navigation.png", alt: "alttext", style: "width:40px"%>
+                    <%= image_tag "matelot.png", alt: "alttext", style: "width:40px"%>
+                    </div>
+                    <div class="pl-4">
+                      <input class="form-check-input radio_buttons required category-selector" type="radio" id="check<%= cruise.id %>">
+                      <label class="form-check-label collection_radio_buttons" for="check<%= cruise.id %>">
+                        <i class="fas fa-check"></i>
+                      </label>
+                      <input class="form-check-input radio_buttons required category-selector" type="radio" id="notcheck<%= cruise.id %>">
+                      <label class="form-check-label collection_radio_buttons" for="notcheck<%= cruise.id %>">
+                        <i class="fas fa-times"></i>
+                      </label>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="border-top pt-3 d-flex justify-content-between" style="align-items: baseline;">
+                  <div class="d-flex" style="align-items: baseline">
+                  <p> <%= image_tag "https://images.unsplash.com/photo-1597223557154-721c1cecc4b0?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=80", class: "avatar-bordered" %></p>
+                  <p class="pl-3"> <span style="font-weight: bold">Cass</span> want to book 1 place on your cruise </p>
+                  </div>
+                  <div class="d-flex" style="align-items: baseline">
+                    <div>
+                    <%= image_tag "map.png", alt: "alttext", style: "width:40px"%>
+                    <%= image_tag "barreur.png", alt: "alttext", style: "width:40px"%>
+                    <%= image_tag "navigation.png", alt: "alttext", style: "width:40px"%>
+                    <%= image_tag "safty.png", alt: "alttext", style: "width:40px"%>
+                    </div>
+                    <div class="pl-4">
+                      <input class="form-check-input radio_buttons required category-selector" type="radio" id="check2<%= cruise.id %>">
+                      <label class="form-check-label collection_radio_buttons" for="check2<%= cruise.id %>">
+                        <i class="fas fa-check"></i>
+                      </label>
+                      <input class="form-check-input radio_buttons required category-selector" type="radio" id="notcheck2<%= cruise.id %>">
+                      <label class="form-check-label collection_radio_buttons" for="notcheck2<%= cruise.id %>">
+                        <i class="fas fa-times"></i>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <%= link_to "Valid your crew", dashboard_path, class: "btn btn-flat btn-success", style: "width:100%"%>
+              </div>
+
+            </div>
+          </div>
+        </div>
       <% end %>
-    </div>
-
-
-
+    <% end %>
   </div>
 
 </div>
@@ -189,3 +252,7 @@
     </div>
   </div>
 </div>
+
+<!-- Modal Booking -->
+
+
