@@ -15,8 +15,9 @@
                     <div class="card-product my-3">
                       <%= cl_image_tag booking.cruise.boat.photo, alt: "CRUISE_img" %>
                       <div class="card-product-infos">
-                        <h3><%= booking.cruise.name %></h3>
-                        <p>Product description with <strong>relevant info</strong> only.</p>
+                        <p><i class="fas fa-user"></i> <%= booking[:seats] %> seat(s) booked for <%= booking.cruise.price.to_i*booking[:seats] %> $</p>
+                        <p><i class="fas fa-map-marker-alt"></i> <%= booking.cruise.start_location.name %> </p>
+                        <p><i class="fas fa-calendar-alt"></i> <%= booking.cruise.start_date %> · <%= booking.cruise.end_date %></p>
                       </div>
                     </div>
         <% end %>
@@ -28,7 +29,7 @@
                   <div class="card-product my-3" style="filter:brightness(1); opacity:.7">
                     <%= cl_image_tag booking.cruise.boat.photo, alt: "CRUISE_img" %>
                     <div class="card-product-infos">
-                      <h2><%= booking.cruise.name %></h2>
+                      <p><%= booking.cruise.name %></p>
                       <p>Product description with <strong>relevant info</strong> only.</p>
                     </div>
                   </div>
