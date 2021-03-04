@@ -7,6 +7,6 @@ class PagesController < ApplicationController
     @bookings = @user.bookings
     @boat = Boat.new
     # @bookings = @user.bookings
-    # @boats = @user.boats
+    @boats = @user.boats
   end
 end

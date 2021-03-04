@@ -1,40 +1,109 @@
-<div class="container">
-<h1>Dashboard</h1>
+<div class="container d-flex">
 
-  <% if @user.bookings.size == 0 %>
-    <h2> You have no upcoming reservations!</h2>
+  <div id="left" class="col-4" >
+    <h3 id="show-title" class="my-3">My reservations</h3>
+
+    <div style="height: 74vh; overflow:scroll; background-color: #293133; border-radius:5px; padding: 20px">
+    <% if @user.bookings.size == 0 %>
+      <p style="color: #fdf9f6"> You have no upcoming reservations</p>
+
     <% else %>
-    <h3> You have an upcoming reservation </h3>
-  <% @bookings.each do |booking| %>
-  <div class="card-trip">
-    <%= cl_image_tag booking.cruise.boat.photo, alt: "CRUISE_img" %>
-    <div class="card-trip-infos">
-      <div>
-        <h4><%= booking.cruise.name %></h4>
-        <P>From :<%= booking.cruise.start_date %></p>
-        <p>To :<%= booking.cruise.end_date %></p>
-      </div>
-      <div class="card-trip-pricing"><%= booking.cruise.price.to_i %>&nbsp;$</div>
-      <%= cl_image_tag booking.cruise.boat.user.photo.key, class: "card-trip-user avatar-bordered"%>
+
+      <p style="color: #fdf9f6"> You have an upcoming reservation </p>
+      <% @bookings.each do |booking| %>
+        <% if booking.cruise.start_date >= (Date.today) %>
+                    <div class="card-product my-3">
+                      <%= cl_image_tag booking.cruise.boat.photo, alt: "CRUISE_img" %>
+                      <div class="card-product-infos">
+                        <h2><%= booking.cruise.name %></h2>
+                        <p>Product description with <strong>relevant info</strong> only.</p>
+                      </div>
+                    </div>
+        <% end %>
+      <% end %>
+
+      <p class="border-top pt-2" style="color: #fdf9f6"> Previous reservations </p>
+      <% @bookings.each do |booking| %>
+        <% if booking.cruise.start_date < (Date.today) %>
+                  <div class="card-product my-3" style="filter:brightness(1); opacity:.7">
+                    <%= cl_image_tag booking.cruise.boat.photo, alt: "CRUISE_img" %>
+                    <div class="card-product-infos">
+                      <h2><%= booking.cruise.name %></h2>
+                      <p>Product description with <strong>relevant info</strong> only.</p>
+                    </div>
+                  </div>
+        <% end %>
+      <% end %>
+    <% end %>
     </div>
   </div>
-    <% end %>
-  <% end %>
+
+  <div id="right" class="col-8">
+
+    <div class="d-flex justify-content-between mt-3 px-2" style="width:100%; height: 30px; align-items: center;">
+    <h3 id="show-title" class="mb-1">My boats</h3>
+
+    <!-- Modal btn-->
+
+    <button type="button" class="btn btn-flat btn-success" data-toggle="modal" data-target="#exampleModalCenter">
+      <% if current_user.boats.count == 0 %>
+        Become captain
+      <% else %>
+        Add a new boat
+      <% end %>
+    </button>
+    </div>
+
+    <div class="slider d-flex">
+      <% current_user.boats.each do |boat| %>
+          <div class="card-trip my-3 mx-2" style="width:200px; padding-bottom: 0px;">
+            <%= cl_image_tag boat.photo, alt: "BOAT_img" %>
+            <div class="card-trip-infos d-flex">
+              <h2><%= boat.name %></h2>
+              <p style="position: absolute; right: 13px;"> <%= boat.capacity%> <i class="fas fa-user"></i> </p>
+            </div>
+          </div>
+      <% end %>
+    </div>
+
+
+    <div class="d-flex justify-content-between mt-3 px-2 pt-2 border-top" style="width:100%; height: 30px; align-items: baseline;">
+    <h3 id="show-title" class="mt-3 mb-1">My cruises</h3>
+    <%= link_to "Create a cruise", new_cruise_path, class: "btn btn-flat btn-success" %>
+    </div>
+
+    <div class="slider d-flex">
+      <% @boats.each do |boat| %>
+        <% boat.cruises.each do |cruise| %>
+          <div class="card-trip my-3 mx-2" style="width:200px">
+            <%= cl_image_tag cruise.boat.photo, alt: "CRUISE_img" %>
+            <div class="card-trip-infos">
+              <h2><%= cruise.name %></h2>
+              <p>Product description with <strong>relevant info</strong> only.</p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+
+
+  </div>
+
 </div>
 
-<% if policy(Boat).edit? %>
-<%= link_to "See my boat(s)", user_boats_path(current_user) %>
-<% end %>
-
-<!-- Modal btn-->
-
-  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter">
-    <% if current_user.boats.count == 0 %>
-      Become captain
-    <% else %>
-      Add a new boat
-    <% end %>
-  </button>
+<!-- <div class="card-trip">
+  <%#= cl_image_tag booking.cruise.boat.photo, alt: "CRUISE_img" %>
+  <div class="card-trip-infos">
+    <div>
+      <h2><%#= booking.cruise.name %></h2>
+      <P>From :<%#= booking.cruise.start_date %></p>
+      <p>To :<%#= booking.cruise.end_date %></p>
+    </div>
+    <div class="card-trip-pricing"><%#= booking.cruise.price.to_i %>&nbsp;$</div>
+    <%#= cl_image_tag booking.cruise.boat.user.photo.key, class: "card-trip-user avatar-bordered"%>
+  </div>
+</div> -->
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
