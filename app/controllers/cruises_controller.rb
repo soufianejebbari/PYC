@@ -37,9 +37,9 @@ class CruisesController < ApplicationController
     @route = @cruise.route
     @markers = @cruise.stops.map do |stop|
       bg = ''
-      if stop.start_location
+      if stop == @cruise.stops.first
         bg = markers_bg[:start_location]
-      elsif stop.end_location
+      elsif stop == @cruise.stops.last
         bg = markers_bg[:end_location]
       else
         bg = markers_bg[:stop]
@@ -47,8 +47,8 @@ class CruisesController < ApplicationController
       {
         lat: stop.location.latitude,
         lng: stop.location.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { location: stop.location.cruises }),
-        image_url: helpers.asset_url(bg)
+        image_url: helpers.asset_url(bg),
+        infoWindow: render_to_string(partial: "info_window_show", locals: { location: stop.location.name })
       }
     end
     @seat_booked = 0
