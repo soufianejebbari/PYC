@@ -21,8 +21,10 @@
             <p> <i class="fas fa-user"></i> <%= cruise.boat.capacity - @seat_booked %> </p>
           </div>
           <div class="card-trip-pricing"><%= cruise.price %>&nbsp;$</div>
-           <%= cl_image_tag cruise.boat.user.photo.key, class: "card-trip-user avatar-bordered"%>
-          </div>
+          <% if cruise.boat.user.photo.attached? %>
+            <%= cl_image_tag cruise.boat.user.photo.key, class: "card-trip-user avatar-bordered"%>
+          <% end %>
+        </div>
       </div>
       <% end %>
     <% end %>
