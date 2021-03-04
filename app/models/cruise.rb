@@ -23,12 +23,12 @@ class Cruise < ApplicationRecord
 
   def start_location
     # self.stops.find_by(start_location: true).location if self.stops.find_by(start_location: true)
-    self.stops.first.location
+    self.stops.first&.location
   end
 
   def end_location
     # self.stops.find_by(end_location: true).location if self.stops.find_by(end_location: true)
-    self.stops.last.location
+    self.stops.last&.location
   end
 
   def routing

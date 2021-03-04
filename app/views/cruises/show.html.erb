@@ -61,6 +61,7 @@
         <h3 class="py-3 border-top" id="show-title">About the boat : <%= @cruise.boat.name %></h3>
         <p><%= @cruise.boat.description %></p>
         <div class="mb-3" style="display: inline-block; background-color: white; border-radius: 3px; box-shadow: 0 0 15px rgba(0,0,0,0.05);">
+
           <% if @cruise.boat.category == "ketch"%>
             <%= image_tag "ketch.png", style: "height:95px" %>
             <p style="font-size:12px; text-align:center">ketch</p>
