@@ -31,8 +31,6 @@ puts "done destroying"
   user.photo.attach(io: user_photo_file, filename: "user_photo")
 end
 
-User.create(email: 'mizrahimarc@gmail.com', password: 123456)
-
 boats = [{
   name: "Cash a l'eau",
   description: "The Sun Odyssey 349 is characterised by the purity of its lines, its interior volume and its welcoming cockpit. It perfectly combines performance, safety at sea and comfort. In the cockpit as well as at the helm, at anchor as well as at sea, take full advantage of this stable and very smooth sailing yacht. Escape from the daily grind and enjoy the pleasures of cruising !",
