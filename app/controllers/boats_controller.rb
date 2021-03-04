@@ -35,7 +35,7 @@ class BoatsController < ApplicationController
     if @boat.save
       redirect_to dashboard_path
     else
-      render :new
+      redirect_to dashboard_path
     end
     authorize @boat
   end
