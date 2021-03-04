@@ -56,12 +56,24 @@
 
     <div class="slider d-flex">
       <% current_user.boats.each do |boat| %>
-          <div class="card-trip my-3 mx-2" style="width:200px; padding-bottom: 0px;">
-            <%= cl_image_tag boat.photo, alt: "BOAT_img" %>
-            <div class="card-trip-infos d-flex">
-              <h2><%= boat.name %></h2>
-              <p style="position: absolute; right: 13px;"> <%= boat.capacity%> <i class="fas fa-user"></i> </p>
+          <div class="card-trip my-3 mx-2" style="background: transparent; box-shadow: 0 0 15px rgba(0,0,0,0); position: relative; width:200px; padding-bottom: 0px;">
+            <%= cl_image_tag boat.photo, style: "border-radius:3px", alt: "BOAT_img" %>
+
+            <div class="card-trip-infos d-flex" style="padding: 10px 0px;">
+              <p><%= boat.name %></p>
+              <p style="position: absolute; right: 0px;"> <%= boat.capacity%> <i class="fas fa-user"></i> </p>
             </div>
+
+            <div class="mb-3" style="position: absolute; top:10px; left: 10px">
+              <% if boat.category == "ketch"%>
+                <%= image_tag "ketch.png", style: "height:40px" %>
+              <% elsif boat.category == "monocoque"%>
+                <%= image_tag "monocoque.png", style: "height:40px" %>
+              <% else %>
+                <%= image_tag "catamaran.png", style: "height:40px" %>
+              <% end %>
+            </div>
+
           </div>
       <% end %>
     </div>
@@ -129,21 +141,21 @@
                 <div class="category-wrapper">
                   <input type="hidden" name="boat[category]" value="">
                   <div class="category-item" data-children-count="1">
-                    <input class="form-check-input radio_buttons required category-selector" type="radio" value="Monocoque" name="boat[category]" id="boat_category_monocoque">
+                    <input class="form-check-input radio_buttons required category-selector" type="radio" value="monocoque" name="boat[category]" id="boat_category_monocoque">
                     <label class="form-check-label collection_radio_buttons" for="boat_category_monocoque">
                       <%= image_tag "monocoque.png", style: "height:95px" %>
                       <p style="font-size:12px; text-align:center">monocoque</p>
                     </label>
                   </div>
                   <div class="category-item" data-children-count="1">
-                    <input class="form-check-input radio_buttons required category-selector" type="radio" value="Catamaran" name="boat[category]" id="boat_category_catamaran">
+                    <input class="form-check-input radio_buttons required category-selector" type="radio" value="catamaran" name="boat[category]" id="boat_category_catamaran">
                     <label class="form-check-label collection_radio_buttons" for="boat_category_catamaran">
                       <%= image_tag "catamaran.png", style: "height:95px" %>
                       <p style="font-size:12px; text-align:center">catamaran</p>
                     </label>
                   </div>
                   <div class="category-item" data-children-count="1">
-                    <input class="form-check-input radio_buttons required category-selector" type="radio" value="Ketch" name="boat[category]" id="boat_category_ketch">
+                    <input class="form-check-input radio_buttons required category-selector" type="radio" value="ketch" name="boat[category]" id="boat_category_ketch">
                     <label class="form-check-label collection_radio_buttons" for="boat_category_ketch">
                       <%= image_tag "ketch.png", style: "height:95px" %>
                       <p style="font-size:12px; text-align:center">ketch</p>
