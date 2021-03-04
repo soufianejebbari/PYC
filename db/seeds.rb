@@ -18,7 +18,7 @@ puts "done destroying"
 # user1 = User.create!(email: "user1@gmail.com", password: 123456)
 # user2 = User.create!(email: "user2@gmail.com", password: 123456)
 
-5.times do
+10.times do
   first_name = Faker::Name.first_name
   email = Faker::Internet.email
   password = "123456"
@@ -31,11 +31,12 @@ puts "done destroying"
   user.photo.attach(io: user_photo_file, filename: "user_photo")
 end
 
-boats = [{
+boats = [
+{
   name: "Cash a l'eau",
   description: "The Sun Odyssey 349 is characterised by the purity of its lines, its interior volume and its welcoming cockpit. It perfectly combines performance, safety at sea and comfort. In the cockpit as well as at the helm, at anchor as well as at sea, take full advantage of this stable and very smooth sailing yacht. Escape from the daily grind and enjoy the pleasures of cruising !",
   # photo: "https://static1.clickandboat.com/v1/p/0lly6fazbt45f0pmeav1ysmoq36dexvv.big.jpg.gz",
-  photo: "https://images.unsplash.com/photo-1498623116890-37e912163d5d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80",
+  photo: "https://images.unsplash.com/photo-1555272899-13b1d044bc7e?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80",
   category: "monocoque",
   capacity: 6,
   user: User.by_random.first
@@ -46,7 +47,7 @@ boats = [{
   # photo: "https://static1.clickandboat.com/v1/p/7k56w3ksiells2bia9fp75q0wlym1w64.big.jpg.gz",
   photo: "https://images.unsplash.com/photo-1533690251914-dd6880431ed0?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80",
   category: "catamaran",
-  capacity: 8,
+  capacity: 4,
   user: User.by_random.first
 },
 {
@@ -64,7 +65,7 @@ boats = [{
   # photo: "https://static1.clickandboat.com/v1/p/k1hi4mveo5i36s49i666gwb0e1uthpnf.big.jpg.gz",
   photo: "https://images.unsplash.com/photo-1536926272733-fd11abd4e4fd?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1650&q=80",
   category: "monocoque",
-  capacity: 4,
+  capacity: 3,
   user: User.by_random.first
 },
 {
@@ -73,7 +74,7 @@ boats = [{
   # photo: "https://static1.clickandboat.com/v1/p/lfp29o37ywzht0zp6xq2flhfe6blf6hr.big.jpg.gz",
   photo: "https://images.unsplash.com/photo-1561562176-d1d598e49589?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80",
   category: "monocoque",
-  capacity: 8,
+  capacity: 6,
   user: User.by_random.first
 },
 {
@@ -91,25 +92,70 @@ boats = [{
   # photo: "https://static1.clickandboat.com/v1/p/te2yJvd38oNcvPy53Bh5dxpQP6VsTR1d.big.jpg.gz",
   photo: "https://images.unsplash.com/photo-1593346362801-b638bed56187?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2689&q=80",
   category: "monocoque",
-  capacity: 8,
+  capacity: 4,
   user: User.by_random.first
 },
 {
   name: "Altair",
   description: "The BALI 4.1 is the first sailing catamaran, totally decked from its bows to its transoms, offering a living space that is completely open and very ergonomic. It also offers a vast forward cockpit with sunbathing area, a breathtaking roof relaxation area, a platform linking the two aft skirts with a large bench seat and general comfort worthy of a large catamaran.",
   # photo: "https://static1.clickandboat.com/v1/p/1pd04n9y42m0k0mq9h2rcvvew9lmgfy8.big.jpg.gz",
-  photo: "https://images.unsplash.com/photo-1558384857-10929afd041c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1651&q=80",
+  photo: "https://images.unsplash.com/photo-1503634192480-e77a6436f075?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1500&q=80",
   category: "catamaran",
-  capacity: 8,
+  capacity: 5,
   user: User.by_random.first
 },
 {
   name: "Mangareva",
-  description: "A 40-FOOT SAILING CATAMARAN IDEAL FOR FAMILY CRUISES ! Always in the spirit of Fountaine Pajot's innovative design, this model offers you its modern saloon, its remarkable performance and its habitability to suit all tastes.  Decidedly, it has everything to please! Be the first to treat yourself to the freedom of escape and the pleasure of sailing in small groups, with family or friends.",
+  description: "A 40-foot sailing catamaran ideal for family cruises ! Always in the spirit of Fountaine Pajot's innovative design, this model offers you its modern saloon, its remarkable performance and its habitability to suit all tastes.  Decidedly, it has everything to please! Be the first to treat yourself to the freedom of escape and the pleasure of sailing in small groups, with family or friends.",
   # photo: "https://static1.clickandboat.com/v1/p/0gZs8iCPiz5gPymwqDjlYZs9gfaqODGW.big.jpg.gz",
-  photo: "https://images.unsplash.com/photo-1613578699399-82ae71be53a3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1953&q=80",
+  photo: "https://images.unsplash.com/photo-1548764151-ef735a5c7674?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1316&q=80",
   category: "catamaran",
   capacity: 4,
+  user: User.by_random.first
+},
+{
+  name: "Pierro'n'Nico",
+  description: "The Pierro'n'Nico is a high standard cruising catamaran. She has been designed with safety, comfort and performance in mind for ocean going cruising and offshore racing. The accommodation are comfortable and simple. Each hull has one double bed cabin, one single bed cabin and one bathroom. Ideal for couples !",
+  # photo: "https://static1.clickandboat.com/v1/p/0gZs8iCPiz5gPymwqDjlYZs9gfaqODGW.big.jpg.gz",
+  photo: "https://images.unsplash.com/photo-1590218087195-fdfe7b9d656e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+  category: "catamaran",
+  capacity: 5,
+  user: User.by_random.first
+},
+{
+  name: "Lauren Rose",
+  description: "Designed by Angus Primrose, the raised deck saloon provides great views whether at the galley or seated at the saloon table. The encapsulated keel ensures a comfortable motion, making her ideal for coastal and offshore passages as well as a safe family boat. Lauren Rose has a superb amount of room for a classically designed yacht.",
+  # photo: "https://static1.clickandboat.com/v1/p/0gZs8iCPiz5gPymwqDjlYZs9gfaqODGW.big.jpg.gz",
+  photo: "https://images.unsplash.com/photo-1613578699399-82ae71be53a3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1953&q=80",
+  category: "monocoque",
+  capacity: 3,
+  user: User.by_random.first
+},
+{
+  name: "Lou Be",
+  description: "Her elegant and practical exterior design and cutting-edge sailing technology are the work of the talented and experienced Perini Navi team, perfectly combining style and performance. Guests will enjoy external spaces ideal for relaxing and al fresco dining, both on the ample aft deck and on the flybridge.",
+  # photo: "https://static1.clickandboat.com/v1/p/0gZs8iCPiz5gPymwqDjlYZs9gfaqODGW.big.jpg.gz",
+  photo: "https://images.unsplash.com/photo-1508436547239-a2149a3d9a46?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+  category: "ketch",
+  capacity: 8,
+  user: User.by_random.first
+},
+{
+  name: "Virgo",
+  description: "The ultimate in simple sailing. She is a safe boat...you never have to go on deck because the sail is hoisted, reefed and lowered from the safety of the cockpit. She has standing headroom in the cabin. An easy boat to use.",
+  # photo: "https://static1.clickandboat.com/v1/p/0gZs8iCPiz5gPymwqDjlYZs9gfaqODGW.big.jpg.gz",
+  photo: "https://images.unsplash.com/photo-1528798356445-785bc8e7f32e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1248&q=80",
+  category: "monocoque",
+  capacity: 2,
+  user: User.by_random.first
+},
+{
+  name: "Soudaine Marcel",
+  description: "The Soudaine Marcel is a perfect couples’ cruising yacht of hand-built pedigree. She features a large saloon and galley, great accommodation for guests, a versatile sail plan, protected cockpit and centerboard shoal-draft accessibility.",
+  # photo: "https://static1.clickandboat.com/v1/p/0gZs8iCPiz5gPymwqDjlYZs9gfaqODGW.big.jpg.gz",
+  photo: "https://images.unsplash.com/photo-1475706398693-8250350bc704?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80",
+  category: "ketch",
+  capacity: 7,
   user: User.by_random.first
 },
 {
@@ -153,6 +199,18 @@ palerme.save!
 
 marseille = Location.new(name: "Marseille")
 marseille.save!
+
+monopoli = Location.new(name: "Monopoli")
+monopoli.save!
+
+split = Location.new(name: "Split")
+split.save!
+
+melilla = Location.new(name: "Melilla")
+melilla.save!
+
+malaga = Location.new(name: "Malaga")
+malaga.save!
 
 
 cruises = [{
