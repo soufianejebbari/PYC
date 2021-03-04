@@ -1,2 +1,5 @@
-<div class="img-map"> <%= image_tag "home.jpg", alt: "CRUISE_img" %></div>
-<h2>Hello</h2>
+<% cruises.each do |cruise|%>
+<%= link_to cruise_path(cruise) do %>
+  <p id="list"><%= cruise.name %></p>
+<% end %>
+<% end %>

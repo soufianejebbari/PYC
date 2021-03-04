@@ -87,7 +87,7 @@ boats = [{
 },
 {
   name: "Croque le vent",
-  description: "If the birth of the Sense was the signature mark of a new lifestyle at sea, the Sense 55 brings the boundary between cruising and long-distance sailing even closer. This Beneteau yacht is an invitation to enjoy living at sea to its full, in harmony with our personal values. Succumb to the magic of a long voyage or coastal navigation, on board a boat in which you experience luxury, linking the essential with the timeless, quite simply and naturally",
+  description: "If the birth of the Sense was the signature mark of a new lifestyle at sea, the Sense 55 brings the boundary between cruising and long-distance sailing even closer. This Beneteau yacht is an invitation to enjoy living at sea to its full, in harmony with our personal values. Succumb to the magic of a long voyage or coastal navigation, on board a boat in which you experience luxury, linking the essential with the timeless, quite simply and naturally.",
   # photo: "https://static1.clickandboat.com/v1/p/te2yJvd38oNcvPy53Bh5dxpQP6VsTR1d.big.jpg.gz",
   photo: "https://images.unsplash.com/photo-1593346362801-b638bed56187?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2689&q=80",
   category: "monocoque",
@@ -183,7 +183,7 @@ cruises = [{
 },
 
 {
-  name: "Sailing to Palma, le Corazon des baléares",
+  name: "Sailing to Palma",
   description: "A translucent sea, warm winds and the pleasure of being at sea. Whether you're a beginner looking for a mooring, or a seasoned sailor, we have the sailboat cruise of your dreams whatever your level of experience. Cruising is an itinerant activity aboard a habitable sailing boat on which you sail autonomously, stopping at well-chosen ports or anchorages. The crew ensures the smooth running of the boat during the navigation.",
   difficulty: rand(1..5),
   price: rand(90..300),
