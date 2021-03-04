@@ -56,11 +56,11 @@
 
     <div class="slider d-flex">
       <% current_user.boats.each do |boat| %>
-          <div class="card-trip my-3 mx-2" style="width:200px">
+          <div class="card-trip my-3 mx-2" style="width:200px; padding-bottom: 0px;">
             <%= cl_image_tag boat.photo, alt: "BOAT_img" %>
-            <div class="card-trip-infos">
+            <div class="card-trip-infos d-flex">
               <h2><%= boat.name %></h2>
-              <p>Product description with <strong>relevant info</strong> only.</p>
+              <p style="position: absolute; right: 13px;"> <%= boat.capacity%> <i class="fas fa-user"></i> </p>
             </div>
           </div>
       <% end %>
