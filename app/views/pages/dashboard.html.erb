@@ -7,21 +7,20 @@
     <h3> You have an upcoming reservation </h3>
   <% @bookings.each do |booking| %>
   <div class="card-trip">
-    <%= cl_image_tag @cruise.boat.photo, alt: "CRUISE_img" %>
+    <%= cl_image_tag booking.cruise.boat.photo, alt: "CRUISE_img" %>
     <div class="card-trip-infos">
       <div>
         <h4><%= booking.cruise.name %></h4>
-        <P>From :<%= booking.start_date %></p>
-        <p>To :<%= booking.end_date %></p>
+        <P>From :<%= booking.cruise.start_date %></p>
+        <p>To :<%= booking.cruise.end_date %></p>
       </div>
-      <div class="card-trip-pricing"><%= cruise.price %>&nbsp;$</div>
-      <%= cl_image_tag cruise.boat.user.photo.key, class: "card-trip-user avatar-bordered"%>
+      <div class="card-trip-pricing"><%= booking.cruise.price.to_i %>&nbsp;$</div>
+      <%= cl_image_tag booking.cruise.boat.user.photo.key, class: "card-trip-user avatar-bordered"%>
     </div>
   </div>
     <% end %>
   <% end %>
 </div>
-
 
 <% if policy(Boat).edit? %>
 <%= link_to "See my boat(s)", user_boats_path(current_user) %>
