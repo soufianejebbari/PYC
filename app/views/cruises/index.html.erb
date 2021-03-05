@@ -20,7 +20,7 @@
             <p> <i class="fas fa-map-marker-alt"></i> <%= cruise.start_location.name %> </p>
             <p> <i class="fas fa-user"></i> <%= cruise.boat.capacity - @seat_booked %> </p>
           </div>
-          <div class="card-trip-pricing"><%= cruise.price %>&nbsp;$</div>
+          <div class="card-trip-pricing"><%= cruise.price %>&nbsp;€</div>
           <% if cruise.boat.user.photo.attached? %>
             <%= cl_image_tag cruise.boat.user.photo.key, class: "card-trip-user avatar-bordered"%>
           <% end %>
