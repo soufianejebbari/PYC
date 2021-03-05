@@ -31,9 +31,15 @@ puts "done destroying"
   user.photo.attach(io: user_photo_file, filename: "user_photo")
 end
 
+francois = User.create!(first_name: "Francois", email: "francois@gmail.com", password: 123456)
+
+  user_photo_url = "https://media-exp1.licdn.com/dms/image/C4E03AQG8ZKjEgM9-Dg/profile-displayphoto-shrink_400_400/0/1606901898327?e=1620259200&v=beta&t=Lnx-DpxiTry_m8V1kTD4xckk3FggAmy3ePzRHXe_zi4"
+  user_photo_file = URI.open(user_photo_url)
+  francois.photo.attach(io: user_photo_file, filename: "user_photo")
+
 boats = [
 {
-  name: "Cash a l'eau",
+  name: "Marco Polo",
   description: "The Sun Odyssey 349 is characterised by the purity of its lines, its interior volume and its welcoming cockpit. It perfectly combines performance, safety at sea and comfort. In the cockpit as well as at the helm, at anchor as well as at sea, take full advantage of this stable and very smooth sailing yacht. Escape from the daily grind and enjoy the pleasures of cruising !",
   # photo: "https://static1.clickandboat.com/v1/p/0lly6fazbt45f0pmeav1ysmoq36dexvv.big.jpg.gz",
   photo: "https://images.unsplash.com/photo-1555272899-13b1d044bc7e?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80",
@@ -69,7 +75,7 @@ boats = [
   user: User.by_random.first
 },
 {
-  name: "Nages et tais toi",
+  name: "FanFan",
   description: "The Dufour 45E performance is a racing-cruising monohull. This yacht is 13.6 m long with a maximum draught of 570 m. Production started in 2010. 91 copies of the boat have been produced. The interior with its volumes and fittings are worthy of a large cruising yacht.",
   # photo: "https://static1.clickandboat.com/v1/p/lfp29o37ywzht0zp6xq2flhfe6blf6hr.big.jpg.gz",
   photo: "https://images.unsplash.com/photo-1561562176-d1d598e49589?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80",
@@ -150,7 +156,7 @@ boats = [
   user: User.by_random.first
 },
 {
-  name: "Soudaine Marcel",
+  name: "Marcel Soudaine",
   description: "The Soudaine Marcel is a perfect couples’ cruising yacht of hand-built pedigree. She features a large saloon and galley, great accommodation for guests, a versatile sail plan, protected cockpit and centerboard shoal-draft accessibility.",
   # photo: "https://static1.clickandboat.com/v1/p/0gZs8iCPiz5gPymwqDjlYZs9gfaqODGW.big.jpg.gz",
   photo: "https://images.unsplash.com/photo-1475706398693-8250350bc704?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80",
@@ -159,7 +165,7 @@ boats = [
   user: User.by_random.first
 },
 {
-  name: "Vaimiti",
+  name: "Agyrate",
   description: "The Sun-Fast 39 is a 12m sailboat Race/Cruise ; full-equipped with 3 double cabins, saloon with dining table, kitchen (fridge, oven and double sink), chart table, shower room and WC. Hot water. On the technical side : genoa 53 m² on furler, mainsail 42 m² and 3 spinnakers of 110 m². Fishing rods and snorkelling equipment.",
   # photo: "https://static1.clickandboat.com/v1/p/5ie0mx2juawys96g0dzl898hbgnuo6p9.big.jpg.gz",
   photo: "https://images.unsplash.com/photo-1542736267-fb6ea61a2e17?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
