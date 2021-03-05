@@ -212,6 +212,14 @@ melilla.save!
 malaga = Location.new(name: "Malaga")
 malaga.save!
 
+brest = Location.new(name: "Brest")
+brest.save!
+
+la_rochelle = Location.new(name: "La Rochelle")
+la_rochelle.save!
+
+lisbonne = Location.new(name: "Lisbonne")
+lisbonne.save!
 
 cruises = [{
 
@@ -257,6 +265,51 @@ cruises = [{
   start_date: Date.today,
   end_date: Date.today+1
 },
+
+{
+  name: "To starboard, Split",
+  description: "A translucent sea, warm winds and the pleasure of being at sea. Whether you're a beginner looking for a mooring, or a seasoned sailor, we have the sailboat cruise of your dreams whatever your level of experience. Cruising is an itinerant activity aboard a habitable sailing boat on which you sail autonomously, stopping at well-chosen ports or anchorages. The crew ensures the smooth running of the boat during the navigation.",
+  difficulty: rand(1..5),
+  price: rand(90..300),
+  start_date: Date.today,
+  end_date: Date.today+1
+},
+
+{
+  name: "Corsica and chill",
+  description: "A translucent sea, warm winds and the pleasure of being at sea. Whether you're a beginner looking for a mooring, or a seasoned sailor, we have the sailboat cruise of your dreams whatever your level of experience. Cruising is an itinerant activity aboard a habitable sailing boat on which you sail autonomously, stopping at well-chosen ports or anchorages. The crew ensures the smooth running of the boat during the navigation.",
+  difficulty: rand(1..5),
+  price: rand(90..300),
+  start_date: Date.today,
+  end_date: Date.today+1
+},
+
+{
+  name: "Discover Corsica seas",
+  description: "A translucent sea, warm winds and the pleasure of being at sea. Whether you're a beginner looking for a mooring, or a seasoned sailor, we have the sailboat cruise of your dreams whatever your level of experience. Cruising is an itinerant activity aboard a habitable sailing boat on which you sail autonomously, stopping at well-chosen ports or anchorages. The crew ensures the smooth running of the boat during the navigation.",
+  difficulty: rand(1..5),
+  price: rand(90..300),
+  start_date: Date.today,
+  end_date: Date.today+1
+},
+
+{
+  name: "Family trip over seas",
+  description: "A translucent sea, warm winds and the pleasure of being at sea. Whether you're a beginner looking for a mooring, or a seasoned sailor, we have the sailboat cruise of your dreams whatever your level of experience. Cruising is an itinerant activity aboard a habitable sailing boat on which you sail autonomously, stopping at well-chosen ports or anchorages. The crew ensures the smooth running of the boat during the navigation.",
+  difficulty: rand(1..5),
+  price: rand(90..300),
+  start_date: Date.today,
+  end_date: Date.today+1
+},
+
+{
+  name: "Take a walk on the wild seas",
+  description: "A translucent sea, warm winds and the pleasure of being at sea. Whether you're a beginner looking for a mooring, or a seasoned sailor, we have the sailboat cruise of your dreams whatever your level of experience. Cruising is an itinerant activity aboard a habitable sailing boat on which you sail autonomously, stopping at well-chosen ports or anchorages. The crew ensures the smooth running of the boat during the navigation.",
+  difficulty: rand(1..5),
+  price: rand(90..300),
+  start_date: Date.today,
+  end_date: Date.today+1
+},
 {
   name: "Ibiza le berceau de la Fiesta",
   description: "A translucent sea, warm winds and the pleasure of being at sea. Whether you're a beginner looking for a mooring, or a seasoned sailor, we have the sailboat cruise of your dreams whatever your level of experience. Cruising is an itinerant activity aboard a habitable sailing boat on which you sail autonomously, stopping at well-chosen ports or anchorages. The crew ensures the smooth running of the boat during the navigation.",
@@ -264,8 +317,7 @@ cruises = [{
   price: rand(90..300),
   start_date: Date.today,
   end_date: Date.today+3
-}
-]
+}]
 
 cruises.each do |cruise|
   cruisy = Cruise.new(cruise)
@@ -286,11 +338,16 @@ cruises.each do |cruise|
   cruisy.boat = Boat.by_random.first
 
   port = cruisy.stops.first.location.name
-  names = ["#{port} - Sardinia - Baleares Islands",
+  names = ["To #{port} and beyond",
   "#{port} to Sardinia",
   "Nice trip all around #{port}",
-  "Sailing to #{port}, le Corazon des baléares",
+  "Sailing to #{port}, le Corazon des baleares",
   "Ciao #{port}",
+  "To starboard, #{port}",
+  "#{port} and chill",
+  "Discover #{port} seas",
+  "Family trip over seas",
+  "Take a walk on the wild seas",
   "#{port} le berceau de la Fiesta"]
 
   cruisy.update(name: names.sample)

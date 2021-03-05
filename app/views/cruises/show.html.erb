@@ -11,10 +11,16 @@
               <div><%= cl_image_tag @cruise.boat.photo, alt: "SURFBOARD", class: "cover"%></div>
             </div>
             <div class="carousel-item">
-              <img class="d-block w-100 cover" src="https://source.unsplash.com/1600x900/?sailingboat" alt="Second slide">
+              <img class="d-block w-100 cover" src="https://images.unsplash.com/photo-1502440635520-a229ff19242c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Second slide">
             </div>
             <div class="carousel-item">
-              <img class="d-block w-100 cover" src="https://source.unsplash.com/1600x900/?boat" alt="Second slide">
+              <img class="d-block w-100 cover" src="https://images.unsplash.com/photo-1555274397-b1f679351802?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1502&q=80t" alt="Second slide">
+            </div>
+            <div class="carousel-item">
+              <img class="d-block w-100 cover" src="https://images.unsplash.com/photo-1498972041884-05fb671a8828?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80" alt="Second slide">
+            </div>
+            <div class="carousel-item">
+              <img class="d-block w-100 cover" src="https://images.unsplash.com/photo-1605804802241-bcec31a527e2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1504&q=80" alt="Second slide">
             </div>
           </div>
           <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -54,7 +60,7 @@
 
         <p><%= @cruise.description %></p>
 
-        <h3 class="py-3 border-top d-flex" id="show-title" style="align-items: center;">Route <div style="font-size: 12px" class="pl-4"><i class="fas fa-circle green-txt"></i> Start <i class="fas fa-circle ml-3"></i> Step <i class="fas fa-circle ml-3" style="color:#fdf9f6; border: #293133 1px solid; border-radius: 50%;"></i> End </div></h3>
+        <h3 class="py-3 border-top d-flex pt-5" id="show-title" style="align-items: center;">Your trip <div style="font-size: 12px" class="pl-4"><i class="fas fa-circle green-txt"></i> Start <i class="fas fa-circle ml-3"></i> Step <i class="fas fa-circle ml-3" style="color:#fdf9f6; border: #293133 1px solid; border-radius: 50%;"></i> End </div></h3>
         <div class="col-12" id="map"
            style="width: 100%; height: 515px; border-radius: 5px"
            data-markers="<%= @markers.to_json %>"
@@ -62,7 +68,7 @@
            data-route = "<%= @route %>"
         ></div>
 
-        <h3 class="py-3 border-top" id="show-title">About the boat : <%= @cruise.boat.name %></h3>
+        <h3 class="py-3 border-top pt-5" id="show-title">Board on : <%= @cruise.boat.name %></h3>
         <p><%= @cruise.boat.description %></p>
         <div class="mb-3" style="display: inline-block; background-color: white; border-radius: 3px; box-shadow: 0 0 15px rgba(0,0,0,0.05);">
 
@@ -78,18 +84,36 @@
           <% end %>
         </div>
 
-        <h3 class="py-3 border-top" id="show-title">About the captain : <%= @cruise.boat.user.first_name %></h3>
-        <div class="d-flex pb-4">
-          <%= image_tag "navigation.png", alt: "alttext", class: "col-2"%>
-          <%= image_tag "safty.png", alt: "alttext", class: "col-2"%>
-          <%= image_tag "connaisseur.png", alt: "alttext", class: "col-2"%>
-          <%= image_tag "map.png", alt: "alttext", class: "col-2"%>
-          <%= image_tag "matelot.png", alt: "alttext", class: "col-2"%>
-          <%= image_tag "barreur.png", alt: "alttext", class: "col-2"%>
-
+        <h3 class="py-3 border-top pt-5" id="show-title">Your captain <%= @cruise.boat.user.first_name %> owns <span style="color: $green" class="green-txt">4</span> Sailor Badges</h3>
+        <div class="d-flex">
+          <div class="mb-3 mx-2" style="display: inline-block">
+            <%= image_tag "navigation.png", alt: "alttext", style: "height:100px; align-items:center"%>
+            <p style="font-size:12px; text-align:center; margin-top:10px">Good Marine <br> knowledge</p>
+            <p style="position: absolute; top: 0px">35</p>
+          </div>
+          <div class="mb-3 mx-2" style="display: inline-block">
+            <%= image_tag "safty.png", alt: "alttext", style: "height:100px; align-items:center"%>
+            <p style="font-size:12px; text-align:center; margin-top:10px">Safty Consciente</p>
+          </div>
+          <div class="mb-3 mx-2" style="display: inline-block">
+          <%= image_tag "connaisseur.png", alt: "alttext", style: "height:100px; align-items:center"%>
+            <p style="font-size:12px; text-align:center; margin-top:10px">Good spots <br> Expert</p>
+          </div>
+          <div class="mb-3 mx-2" style="display: inline-block">
+          <%= image_tag "map.png", alt: "alttext", style: "opacity: .2; height:100px; align-items:center"%>
+            <p style="opacity: .2; font-size:12px; text-align:center; margin-top:10px">Nautical chart <br> Reader</p>
+          </div>
+          <div class="mb-3 mx-2" style="display: inline-block">
+          <%= image_tag "matelot.png", alt: "alttext", style: "opacity: .2; height:100px; align-items:center"%>
+            <p style="font-size:12px; text-align:center; margin-top:10px; opacity: .2;">Community Ease</p>
+          </div>
+          <div class="mb-3 mx-2" style="display: inline-block">
+          <%= image_tag "barreur.png", alt: "alttext", style: "height:100px; align-items:center"%>
+            <p style="font-size:12px; text-align:center; margin-top:10px">Good Skipper</p>
+          </div>
         </div>
 
-        <h3 class="py-3 border-top" id="show-title">Reviews</h3>
+        <h3 class="py-3 border-top pt-5" id="show-title">Reviews</h3>
         <% if @cruise.reviews.length == 0 %>
           <p>No comment</p>
         <% else %>
