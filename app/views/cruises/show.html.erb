@@ -86,30 +86,35 @@
 
         <h3 class="py-3 border-top pt-5" id="show-title">Your captain <%= @cruise.boat.user.first_name %> owns <span style="color: $green" class="green-txt">4</span> Sailor Badges</h3>
         <div class="d-flex">
-          <div class="mb-3 mx-2" style="display: inline-block">
+          <div class="mb-3 mx-2" style="display: inline-block; position:relative;">
             <%= image_tag "navigation.png", alt: "alttext", style: "height:100px; align-items:center"%>
             <p style="font-size:12px; text-align:center; margin-top:10px">Good Marine <br> knowledge</p>
-            <p style="position: absolute; top: 0px">35</p>
+            <div style="font-size: 10px; padding: 5px 7px 3px 7px; background-color: #90caa0; position: absolute; top: -10px; left:75px; border-radius:50%;">15</div>
           </div>
-          <div class="mb-3 mx-2" style="display: inline-block">
+          <div class="mb-3 mx-2" style="display: inline-block; position:relative">
             <%= image_tag "safty.png", alt: "alttext", style: "height:100px; align-items:center"%>
             <p style="font-size:12px; text-align:center; margin-top:10px">Safty Consciente</p>
+            <div style="font-size: 10px; padding: 5px 7px 3px 7px; background-color: #90caa0; position: absolute; top: -10px; left:75px; border-radius:50%;">13</div>
           </div>
-          <div class="mb-3 mx-2" style="display: inline-block">
-          <%= image_tag "connaisseur.png", alt: "alttext", style: "height:100px; align-items:center"%>
+          <div class="mb-3 mx-2" style="display: inline-block; position:relative">
+            <%= image_tag "connaisseur.png", alt: "alttext", style: "height:100px; align-items:center"%>
             <p style="font-size:12px; text-align:center; margin-top:10px">Good spots <br> Expert</p>
+            <div style="font-size: 10px; padding: 5px 7px 3px 7px; background-color: #90caa0; position: absolute; top: -10px; left:75px; border-radius:50%;">11</div>
           </div>
-          <div class="mb-3 mx-2" style="display: inline-block">
+          <div class="mb-3 mx-2" style="display: inline-block; position:relative">
           <%= image_tag "map.png", alt: "alttext", style: "opacity: .2; height:100px; align-items:center"%>
             <p style="opacity: .2; font-size:12px; text-align:center; margin-top:10px">Nautical chart <br> Reader</p>
+            <div style="font-size: 10px; padding: 5px 6px 3px 6px; background-color: lightgray; position: absolute; top: -10px; left:75px; border-radius:50%; opacity: .8;">07</div>
           </div>
-          <div class="mb-3 mx-2" style="display: inline-block">
+          <div class="mb-3 mx-2" style="display: inline-block; position:relative">
           <%= image_tag "matelot.png", alt: "alttext", style: "opacity: .2; height:100px; align-items:center"%>
             <p style="font-size:12px; text-align:center; margin-top:10px; opacity: .2;">Community Ease</p>
+            <div style="font-size: 10px; padding: 5px 6px 3px 5px; background-color: lightgray; position: absolute; top: -10px; left:75px; border-radius:50%; opacity: .8;">02</div>
           </div>
-          <div class="mb-3 mx-2" style="display: inline-block">
+          <div class="mb-3 mx-2" style="display: inline-block; position:relative">
           <%= image_tag "barreur.png", alt: "alttext", style: "height:100px; align-items:center"%>
             <p style="font-size:12px; text-align:center; margin-top:10px">Good Skipper</p>
+            <div style="font-size: 10px; padding: 5px 7px 3px 7px; background-color: #90caa0; position: absolute; top: -10px; left:75px; border-radius:50%;">13</div>
           </div>
         </div>
 
